@@ -1,5 +1,5 @@
-import { ChartAreaDemo } from '@/components/chart-area-demo';
-import { ChartBarDemo } from '@/components/chart-bar-demo';
+import { ChartAreaDemo } from '@/ui/chart-area-demo';
+import { ChartBarDemo } from '@/ui/chart-bar-demo';
 import { ChartBarMixed } from '@/registry/new-york-v4/charts/chart-bar-mixed';
 
 export function ChartDemo() {

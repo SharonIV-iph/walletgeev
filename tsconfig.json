@@ -1,5 +1,6 @@
 {
     "compilerOptions": {
+        "target": "es5",
         "lib": [
             "dom",
             "dom.iterable",
@@ -25,14 +26,14 @@
             "@/*": [
                 "./src/*"
             ]
-        },
-        "target": "ES2023"
+        }
     },
     "include": [
         "next-env.d.ts",
         "**/*.ts",
         "**/*.tsx",
-        ".next/types/**/*.ts"
+        ".next/types/**/*.ts",
+        "src/types/twin.d.ts"
     ],
     "exclude": [
         "node_modules"
