@@ -2,6 +2,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/registry/new
 import { Input } from "@/registry/new-york-v4/ui/input";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import { Search } from "lucide-react";
+import { SearchModalProps } from '@/types/components';
 
 interface SearchModalProps {
   isOpen: boolean;

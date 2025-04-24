@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import Link from 'next/link';
 
 const footerLinks = [
   {
@@ -52,13 +53,13 @@ export default function Footer() {
               {socialLinks.map((social, index) => {
                 const Icon = social.icon;
                 return (
-                  <a
+                  <Link
                     key={index}
                     href={social.href}
                     className="text-gray-400 hover:text-white transition-colors"
                   >
                     <Icon className="h-5 w-5" />
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -71,12 +72,12 @@ export default function Footer() {
               <ul className="space-y-2">
                 {section.links.map((link, linkIndex) => (
                   <li key={linkIndex}>
-                    <a
+                    <Link
                       href={link.href}
                       className="text-gray-400 hover:text-white transition-colors text-sm"
                     >
                       {link.label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

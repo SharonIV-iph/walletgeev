@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { Video, Calendar, ClipboardList, MessageCircle } from 'lucide-react';
+import { Service, ServicesProps } from '@/types/components';
 
 interface Service {
   id: number;

@@ -8,26 +8,9 @@ import { ScrollArea } from "@/registry/new-york-v4/ui/scroll-area";
 import { useAuth } from '@/hooks/useAuth';
 import { useApi } from '@/hooks/useApi';
 import { useRouter } from 'next/navigation';
-
-interface Doctor {
-  id: string;
-  name: string;
-  imageUrl: string;
-}
-
-interface Consultation {
-  id: string;
-  uuid: string;
-  name: string;
-  assigned: Doctor[];
-}
-
-interface Notification {
-  id: string;
-  message: string;
-  time: string;
-  isRead: boolean;
-}
+import { Doctor, Consultation } from '@/types/doctor';
+import { Notification } from '@/types/components';
+import Link from 'next/link';
 
 export default function Dashboard() {
   const router = useRouter();
@@ -35,20 +18,7 @@ export default function Dashboard() {
   const { get, loading, error } = useApi();
   const [consultations, setConsultations] = useState<Consultation[]>([]);
 
-  const [notifications, setNotifications] = React.useState<Notification[]>([
-    {
-      id: '1',
-      message: 'مشاوره شما با دکتر رضایی تأیید شد',
-      time: '۱۵ دقیقه پیش',
-      isRead: false,
-    },
-    {
-      id: '2',
-      message: 'زمان مشاوره با دکتر محمدی فردا ساعت ۱۵:۰۰ است',
-      time: '۱ ساعت پیش',
-      isRead: true,
-    },
-  ]);
+
 
   useEffect(() => {
     const fetchConsultations = async () => {
@@ -92,13 +62,13 @@ export default function Dashboard() {
                 const Icon = item.icon;
                 return (
                   <li key={item.label}>
-                    <a
+                    <Link
                       href={item.href}
                       className="flex items-center space-x-3 space-x-reverse p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
                     >
                       <Icon className="h-5 w-5" />
                       <span>{item.label}</span>
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

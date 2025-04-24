@@ -2,16 +2,7 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/registry/new-york-v4/ui/card';
-
-interface GalleryItem {
-  id: number;
-  imageUrl: string;
-  caption: string;
-}
-
-interface GalleryProps {
-  items: GalleryItem[];
-}
+import { GalleryItem, GalleryProps } from '@/types';
 
 export default function Gallery({ items }: GalleryProps) {
   return (

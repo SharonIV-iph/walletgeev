@@ -5,21 +5,10 @@ import { useRouter } from 'next/navigation';
 import { Star } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/new-york-v4/ui/card';
 import { Button } from '@/registry/new-york-v4/ui/button';
+import { Doctor } from '@/types/doctor';
+import { FeaturedDoctorsProps } from '@/types/components';
 
-interface Doctor {
-  id: number;
-  name: string;
-  specialty: string;
-  rating: number;
-  imageUrl: string;
-  description: string;
-}
-
-interface FeaturedDoctorsProps {
-  doctors: Doctor[];
-}
-
-export default function FeaturedDoctors({ doctors }: FeaturedDoctorsProps) {
+const FeaturedDoctors: React.FC<FeaturedDoctorsProps> = ({ doctors }) => {
   const router = useRouter();
   
   return (
@@ -72,4 +61,6 @@ export default function FeaturedDoctors({ doctors }: FeaturedDoctorsProps) {
       </div>
     </section>
   );
-} 
+};
+
+export default FeaturedDoctors; 

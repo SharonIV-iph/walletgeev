@@ -5,12 +5,7 @@ import { Input } from "@/registry/new-york-v4/ui/input";
 import { Textarea } from "@/registry/new-york-v4/ui/textarea";
 import { Button } from "@/registry/new-york-v4/ui/button";
 import { Card } from "@/registry/new-york-v4/ui/card";
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import { ContactFormData } from '@/types/forms';
 
 export default function ContactUs() {
   const [formData, setFormData] = useState<ContactFormData>({

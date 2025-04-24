@@ -1,11 +1,6 @@
 import React from 'react';
 import { Card } from "@/registry/new-york-v4/ui/card";
-
-interface HeroProps {
-  heading: string;
-  description: string;
-  imageSrc: string;
-}
+import { HeroProps } from '@/types/components';
 
 const Hero: React.FC<HeroProps> = ({ heading, description, imageSrc }) => {
   return (

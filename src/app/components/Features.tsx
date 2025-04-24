@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from "@/registry/new-york-v4/ui/card";
+import { Feature, FeaturesProps } from '@/types/components';
 
 interface Feature {
   icon: string;

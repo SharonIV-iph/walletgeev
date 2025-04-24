@@ -3,19 +3,9 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
+import { TeamMember, TeamSectionProps } from '@/types';
 
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  imageUrl: string;
-}
-
-interface TeamSectionProps {
-  team: TeamMember[];
-}
-
-export default function TeamSection({ team }: TeamSectionProps) {
+export default function TeamSection({ team = [] }: TeamSectionProps) {
   return (
     <section className="py-16 bg-muted">
       <div className="container mx-auto px-4">

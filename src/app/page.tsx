@@ -10,44 +10,7 @@ import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Gallery from './components/Gallery';
 import Footer from './components/Footer';
-
-// Types
-interface Doctor {
-  id: number;
-  name: string;
-  specialty: string;
-  rating: number;
-  imageUrl: string;
-  description: string;
-}
-
-interface Testimonial {
-  id: number;
-  quote: string;
-  name: string;
-  rating: number;
-  imageUrl: string;
-}
-
-interface Service {
-  id: number;
-  icon: string;
-  title: string;
-  description: string;
-}
-
-interface GalleryItem {
-  id: number;
-  imageUrl: string;
-  caption: string;
-}
-
-interface TeamMember {
-  id: number;
-  name: string;
-  role: string;
-  imageUrl: string;
-}
+import { Doctor, Testimonial, Service, GalleryItem, TeamMember } from '@/types';
 
 export default function Home() {
   const api = useApi();

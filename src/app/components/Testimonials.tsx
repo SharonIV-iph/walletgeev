@@ -12,18 +12,7 @@ import {
   CarouselPrevious,
 } from '@/registry/new-york-v4/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
-
-interface Testimonial {
-  id: number;
-  quote: string;
-  name: string;
-  rating: number;
-  imageUrl: string;
-}
-
-interface TestimonialsProps {
-  testimonials: Testimonial[];
-}
+import { Testimonial, TestimonialsProps } from '@/types';
 
 export default function Testimonials({ testimonials }: TestimonialsProps) {
   const plugin = React.useRef(

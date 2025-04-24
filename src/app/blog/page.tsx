@@ -2,14 +2,7 @@
 
 import React from 'react';
 import { Card } from "@/registry/new-york-v4/ui/card";
-
-interface BlogPost {
-  id: number;
-  title: string;
-  date: string;
-  excerpt: string;
-  image: string;
-}
+import { BlogPost } from '@/types/components';
 
 const blogPosts: BlogPost[] = [
   {
@@ -35,7 +28,7 @@ const blogPosts: BlogPost[] = [
   }
 ];
 
-export default function BlogIndex() {
+const BlogPage: React.FC = () => {
   return (
     <main>
       <div className="relative">
@@ -64,4 +57,6 @@ export default function BlogIndex() {
       </div>
     </main>
   );
-} 
+};
+
+export default BlogPage; 
