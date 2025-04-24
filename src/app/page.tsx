@@ -1,36 +1,109 @@
 'use client';
 
-import React from 'react';
-import Hero from './components/Hero';
-import Features from './components/Features';
+import React, { useEffect, useState } from 'react';
+import { useApi } from '@/hooks/useApi';
+import Header from './components/Header';
+import FeaturedDoctors from './components/FeaturedDoctors';
+import TeamSection from './components/TeamSection';
+import CallToAction from './components/CallToAction';
+import Services from './components/Services';
+import Testimonials from './components/Testimonials';
+import Gallery from './components/Gallery';
+import Footer from './components/Footer';
 
-const features = [
-  {
-    icon: '/images/icon1.svg',
-    title: 'اتاق‌های لوکس',
-    description: 'اتاق‌های مجلل و راحت با طراحی مدرن و امکانات کامل'
-  },
-  {
-    icon: '/images/icon2.svg',
-    title: 'رستوران‌های متنوع',
-    description: 'رستوران‌های مجلل با منوهای متنوع و غذاهای خوشمزه'
-  },
-  {
-    icon: '/images/icon3.svg',
-    title: 'خدمات ویژه',
-    description: 'خدمات VIP، اسپا، استخر و سالن ورزشی مجهز'
-  }
-];
+// Types
+interface Doctor {
+  id: number;
+  name: string;
+  specialty: string;
+  rating: number;
+  imageUrl: string;
+  description: string;
+}
+
+interface Testimonial {
+  id: number;
+  quote: string;
+  name: string;
+  rating: number;
+  imageUrl: string;
+}
+
+interface Service {
+  id: number;
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface GalleryItem {
+  id: number;
+  imageUrl: string;
+  caption: string;
+}
+
+interface TeamMember {
+  id: number;
+  name: string;
+  role: string;
+  imageUrl: string;
+}
 
 export default function Home() {
+  const api = useApi();
+  const [doctors, setDoctors] = useState<Doctor[]>([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
+  const [services, setServices] = useState<Service[]>([]);
+  const [gallery, setGallery] = useState<GalleryItem[]>([]);
+  const [team, setTeam] = useState<TeamMember[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const [doctorsData, testimonialsData, servicesData, galleryData, teamData] = await Promise.all([
+          api.get<Doctor[]>('/doctors'),
+          api.get<Testimonial[]>('/testimonials'),
+          api.get<Service[]>('/services'),
+          api.get<GalleryItem[]>('/gallery'),
+          api.get<TeamMember[]>('/team')
+        ]);
+
+        if (doctorsData) setDoctors(doctorsData.data);
+        if (testimonialsData) setTestimonials(testimonialsData.data);
+        if (servicesData) setServices(servicesData.data);
+        if (galleryData) setGallery(galleryData.data);
+        if (teamData) setTeam(teamData.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div className="flex items-center justify-center min-h-screen">
+      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
+    </div>;
+  }
+
   return (
-    <main>
-      <Hero
-        heading="به هتل لوکس ما خوش آمدید"
-        description="تجربه‌ای متفاوت از اقامتی لوکس و راحت"
-        imageSrc="/images/hotel-hero.jpg"
-      />
-      <Features features={features} />
+    <main className="min-h-screen bg-background text-foreground rtl" dir="rtl">
+      <Header />
+      
+      <div className="container mx-auto px-4">
+        <FeaturedDoctors doctors={doctors} />
+        <TeamSection team={team} />
+        <CallToAction />
+        <Services services={services} />
+        <Testimonials testimonials={testimonials} />
+        <Gallery items={gallery} />
+      </div>
+
+      <Footer />
     </main>
   );
 }

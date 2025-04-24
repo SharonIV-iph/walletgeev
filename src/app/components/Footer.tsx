@@ -1,154 +1,95 @@
+'use client';
+
 import React from 'react';
-import Link from 'next/link';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 
-const Footer: React.FC = () => {
+const footerLinks = [
+  {
+    title: 'درباره ما',
+    links: [
+      { label: 'معرفی کلینیک', href: '/about' },
+      { label: 'تیم پزشکی', href: '/team' },
+      { label: 'تماس با ما', href: '/contact' },
+    ],
+  },
+  {
+    title: 'خدمات',
+    links: [
+      { label: 'مشاوره آنلاین', href: '/services/online' },
+      { label: 'نوبت‌دهی', href: '/services/appointment' },
+      { label: 'خدمات ویژه', href: '/services/special' },
+    ],
+  },
+  {
+    title: 'اطلاعات تماس',
+    links: [
+      { label: 'تلفن: ۰۲۱-۱۲۳۴۵۶۷۸', href: 'tel:02112345678' },
+      { label: 'ایمیل: info@clinic.com', href: 'mailto:info@clinic.com' },
+      { label: 'آدرس: تهران، خیابان ولیعصر', href: '/contact' },
+    ],
+  },
+];
+
+const socialLinks = [
+  { icon: Facebook, href: '#' },
+  { icon: Twitter, href: '#' },
+  { icon: Instagram, href: '#' },
+  { icon: Linkedin, href: '#' },
+];
+
+export default function Footer() {
   return (
-    <footer className="border-t bg-background">
-      <div className="container py-12">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Navigation
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="/"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/pricing"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Pricing
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Contact
-                </Link>
-              </li>
-            </ul>
+    <footer className="bg-gray-900 text-white py-12">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Logo and Description */}
+          <div>
+            <img src="/images/logo-white.svg" alt="Logo" className="h-10 mb-4" />
+            <p className="text-gray-400 text-sm">
+              ارائه خدمات درمانی با بالاترین استانداردها و تجهیزات پیشرفته پزشکی
+            </p>
+            <div className="flex space-x-4 space-x-reverse mt-6">
+              {socialLinks.map((social, index) => {
+                const Icon = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="text-gray-400 hover:text-white transition-colors"
+                  >
+                    <Icon className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Account
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="/login"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Login
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/signup"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Sign Up
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Legal
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Terms of Service
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div className="space-y-4">
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
-              Contact
-            </h3>
-            <ul className="space-y-4">
-              <li>
-                <Link
-                  href="mailto:contact@example.com"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  contact@example.com
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="tel:+1234567890"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  +1 (234) 567-890
-                </Link>
-              </li>
-            </ul>
-          </div>
+          {/* Footer Links */}
+          {footerLinks.map((section, index) => (
+            <div key={index}>
+              <h3 className="font-semibold text-lg mb-4">{section.title}</h3>
+              <ul className="space-y-2">
+                {section.links.map((link, linkIndex) => (
+                  <li key={linkIndex}>
+                    <a
+                      href={link.href}
+                      className="text-gray-400 hover:text-white transition-colors text-sm"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-8 border-t pt-8 md:flex md:items-center md:justify-between">
-          <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} Hotel Name. All rights reserved.
+        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400 text-sm">
+          <p>
+            © {new Date().getFullYear()} کلینیک تخصصی. تمامی حقوق محفوظ است.
           </p>
-          <div className="mt-4 flex space-x-6 md:mt-0">
-            <Link
-              href="/privacy"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms"
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            >
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer; 
+} 

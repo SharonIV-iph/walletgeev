@@ -1,0 +1,229 @@
+{
+  "doctors": [
+    {
+      "id": "1",
+      "name": "دکتر علی محمدی",
+      "specialty": "متخصص قلب و عروق",
+      "rating": 4.8,
+      "imageUrl": "/images/doctors/doctor.png",
+      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی"
+    },
+    {
+      "id": "2",
+      "name": "دکتر سارا رضایی",
+      "specialty": "متخصص مغز و اعصاب",
+      "rating": 4.9,
+      "imageUrl": "/images/doctors/doctor.png",
+      "description": "جراح و متخصص مغز و اعصاب با تخصص در درمان‌های نوین عصبی"
+    },
+    {
+      "id": "3",
+      "name": "دکتر محمد کریمی",
+      "specialty": "متخصص داخلی",
+      "rating": 4.7,
+      "imageUrl": "/images/doctors/doctor.png",
+      "description": "متخصص بیماری‌های داخلی با رویکرد جامع به سلامت بیماران"
+    },
+    {
+      "id": "4",
+      "name": "دکتر زهرا حسینی",
+      "specialty": "متخصص پوست و مو",
+      "rating": 4.9,
+      "imageUrl": "/images/doctors/doctor.png",
+      "description": "متخصص پوست و مو با تجربه در درمان‌های زیبایی و پوستی"
+    }
+  ],
+  "testimonials": [
+    {
+      "id": "1",
+      "quote": "بهترین تجربه درمانی که تا به حال داشته‌ام. پزشکان بسیار حرفه‌ای و مجرب هستند.",
+      "name": "مریم احمدی",
+      "rating": 5,
+      "imageUrl": "/images/testimonials/doctor.png"
+    },
+    {
+      "id": "2",
+      "quote": "کادر پزشکی فوق‌العاده و رسیدگی عالی به بیماران. قطعاً به دوستانم پیشنهاد می‌کنم.",
+      "name": "رضا کمالی",
+      "rating": 4.8,
+      "imageUrl": "/images/testimonials/doctor.png"
+    },
+    {
+      "id": "3",
+      "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
+      "name": "نسرین محمودی",
+      "rating": 4.9,
+      "imageUrl": "/images/testimonials/doctor.png"
+    },
+    {
+      "id": "4",
+      "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
+      "name": "نسرین محمودی",
+      "rating": 4.9,
+      "imageUrl": "/images/testimonials/doctor.png"
+    },
+    {
+      "id": "5",
+      "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
+      "name": "نسرین محمودی",
+      "rating": 4.9,
+      "imageUrl": "/images/testimonials/doctor.png"
+    },
+    {
+      "id": "6",
+      "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
+      "name": "نسرین محمودی",
+      "rating": 4.9,
+      "imageUrl": "/images/testimonials/doctor.png"
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "icon": "VideoCamera",
+      "title": "مشاوره آنلاین",
+      "description": "مشاوره تخصصی آنلاین با پزشکان مجرب"
+    },
+    {
+      "id": "2",
+      "icon": "Calendar",
+      "title": "نوبت‌دهی آنلاین",
+      "description": "رزرو نوبت آنلاین در سریع‌ترین زمان ممکن"
+    },
+    {
+      "id": "3",
+      "icon": "ClipboardList",
+      "title": "پرونده الکترونیک",
+      "description": "دسترسی به پرونده پزشکی به صورت آنلاین"
+    },
+    {
+      "id": "4",
+      "icon": "ChatAlt",
+      "title": "پشتیبانی 24/7",
+      "description": "پشتیبانی شبانه‌روزی برای پاسخگویی به سوالات شما"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "1",
+      "imageUrl": "/images/gallery/doctor.png",
+      "caption": "فضای مدرن و آرامش‌بخش کلینیک"
+    },
+    {
+      "id": "2",
+      "imageUrl": "/images/gallery/doctor.png",
+      "caption": "تجهیزات پیشرفته پزشکی"
+    },
+    {
+      "id": "3",
+      "imageUrl": "/images/gallery/doctor.png",
+      "caption": "کادر متخصص و مجرب"
+    },
+    {
+      "id": "4",
+      "imageUrl": "/images/gallery/doctor.png",
+      "caption": "امکانات رفاهی برای بیماران"
+    }
+  ],
+  "verify": {
+    "status": true
+  },
+  "users": [
+    {
+      "id": "1",
+      "name": "محمد حسینی",
+      "phoneNumber": "+989123456789"
+    },
+    {
+      "id": "2",
+      "name": "جواد حسینی",
+      "phoneNumber": "+989223456789"
+    },
+    {
+      "id": "3",
+      "name": "رضا حسینی",
+      "phoneNumber": "+989323456789"
+    },
+    {
+      "id": "4",
+      "name": "تقی حسینی",
+      "phoneNumber": "+989423456789"
+    },
+    {
+      "id": "af94",
+      "name": "index.html",
+      "phoneNumber": "09050386077",
+      "verificationCode": "22323"
+    },
+    {
+      "id": "78ad",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "6376",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "db14",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "7e1d",
+      "name": "erc20",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "bbc9",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "67ed",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "2364",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "6de0",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "809c",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "cd21",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    }
+  ],
+  "team": [
+    {
+      "id": "1",
+      "name": "دکتر رضا جعفری",
+      "role": "مدیر کلینیک",
+      "imageUrl": "/images/team/doctor.png"
+    },
+    {
+      "id": "2",
+      "name": "دکتر مینا صادقی",
+      "role": "سرپرست بخش داخلی",
+      "imageUrl": "/images/team/doctor.png"
+    },
+    {
+      "id": "3",
+      "name": "دکتر امیر حسینی",
+      "role": "سرپرست بخش جراحی",
+      "imageUrl": "/images/team/doctor.png"
+    }
+  ]
+}

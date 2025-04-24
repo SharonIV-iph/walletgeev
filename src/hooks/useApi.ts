@@ -2,7 +2,8 @@ import { useState, useCallback, useMemo } from 'react';
 import { ApiService } from '@/lib/services/api.service';
 import { ApiResponse, ApiError } from '@/lib/types/api';
 
-export const useApi = (baseURL: string) => {
+export const useApi = () => {
+  const baseURL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001';
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<ApiError | null>(null);
 
