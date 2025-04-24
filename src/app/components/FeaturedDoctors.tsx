@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { Star } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/new-york-v4/ui/card';
 import { Button } from '@/registry/new-york-v4/ui/button';
@@ -19,6 +20,8 @@ interface FeaturedDoctorsProps {
 }
 
 export default function FeaturedDoctors({ doctors }: FeaturedDoctorsProps) {
+  const router = useRouter();
+  
   return (
     <section className="py-16">
       <div className="text-center mb-12">
@@ -60,7 +63,7 @@ export default function FeaturedDoctors({ doctors }: FeaturedDoctorsProps) {
             </CardContent>
             
             <CardFooter>
-              <Button className="w-full">
+              <Button className="w-full" onClick={() => router.push(`/doctors/${doctor.id}`)}>
                 مشاهده پروفایل
               </Button>
             </CardFooter>

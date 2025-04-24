@@ -103,7 +103,7 @@ export default function Home() {
         <Gallery items={gallery} />
       </div>
 
-      <Footer />
+      
     </main>
   );
 }

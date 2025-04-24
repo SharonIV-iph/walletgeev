@@ -6,31 +6,135 @@
       "specialty": "متخصص قلب و عروق",
       "rating": 4.8,
       "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی"
+      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "dr.mohammadi@example.com",
+        "website": "www.drmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "متخصص قلب و عروق از دانشگاه تهران",
+        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "insurances": [
+        "تامین اجتماعی",
+        "خدمات درمانی",
+        "نیروهای مسلح"
+      ]
     },
     {
       "id": "2",
-      "name": "دکتر سارا رضایی",
-      "specialty": "متخصص مغز و اعصاب",
-      "rating": 4.9,
+      "name": "دکتر علی محمدی",
+      "specialty": "متخصص قلب و عروق",
+      "rating": 4.8,
       "imageUrl": "/images/doctors/doctor.png",
-      "description": "جراح و متخصص مغز و اعصاب با تخصص در درمان‌های نوین عصبی"
+      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "dr.mohammadi@example.com",
+        "website": "www.drmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "متخصص قلب و عروق از دانشگاه تهران",
+        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "insurances": [
+        "تامین اجتماعی",
+        "خدمات درمانی",
+        "نیروهای مسلح"
+      ]
     },
     {
       "id": "3",
-      "name": "دکتر محمد کریمی",
-      "specialty": "متخصص داخلی",
-      "rating": 4.7,
+      "name": "دکتر علی محمدی",
+      "specialty": "متخصص قلب و عروق",
+      "rating": 4.8,
       "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص بیماری‌های داخلی با رویکرد جامع به سلامت بیماران"
+      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "dr.mohammadi@example.com",
+        "website": "www.drmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "متخصص قلب و عروق از دانشگاه تهران",
+        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "insurances": [
+        "تامین اجتماعی",
+        "خدمات درمانی",
+        "نیروهای مسلح"
+      ]
     },
     {
       "id": "4",
-      "name": "دکتر زهرا حسینی",
-      "specialty": "متخصص پوست و مو",
-      "rating": 4.9,
+      "name": "دکتر علی محمدی",
+      "specialty": "متخصص قلب و عروق",
+      "rating": 4.8,
       "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص پوست و مو با تجربه در درمان‌های زیبایی و پوستی"
+      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "dr.mohammadi@example.com",
+        "website": "www.drmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "متخصص قلب و عروق از دانشگاه تهران",
+        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "insurances": [
+        "تامین اجتماعی",
+        "خدمات درمانی",
+        "نیروهای مسلح"
+      ]
     }
   ],
   "testimonials": [
@@ -128,6 +232,59 @@
   "verify": {
     "status": true
   },
+  "chats": [
+    {
+      "id": "1",
+      "uuid": "uuid-1",
+      "name": "one chat",
+      "assigned": [
+        {
+          "id": "1",
+          "name": "دکتر علی محمدی",
+          "imageUrl": "/images/doctors/doctor.png"
+        },
+        {
+          "id": "2",
+          "name": "دکتر علی محمدی",
+          "imageUrl": "/images/doctors/doctor.png"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "uuid": "uuid-2",
+      "name": "one chat",
+      "assigned": [
+        {
+          "id": "1",
+          "name": "دکتر علی محمدی",
+          "imageUrl": "/images/doctors/doctor.png"
+        },
+        {
+          "id": "2",
+          "name": "دکتر علی محمدی",
+          "imageUrl": "/images/doctors/doctor.png"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "uuid": "uuid-3",
+      "name": "one chat",
+      "assigned": [
+        {
+          "id": "1",
+          "name": "دکتر علی محمدی",
+          "imageUrl": "/images/doctors/doctor.png"
+        },
+        {
+          "id": "2",
+          "name": "دکتر علی محمدی",
+          "imageUrl": "/images/doctors/doctor.png"
+        }
+      ]
+    }
+  ],
   "users": [
     {
       "id": "1",
@@ -204,6 +361,76 @@
       "id": "cd21",
       "name": "index.html",
       "phoneNumber": "09050386077"
+    },
+    {
+      "id": "a4be",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "fd0a",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "e2b4",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "ff09",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "bdc4",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "a954",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "f546",
+      "name": "index.html",
+      "phoneNumber": "09050386077"
+    },
+    {
+      "id": "40fa",
+      "phoneNumber": "09050386077",
+      "code": "36464"
+    },
+    {
+      "id": "3a32",
+      "phoneNumber": "09050386077",
+      "code": "36464"
+    },
+    {
+      "id": "f50d",
+      "phoneNumber": "09050038607",
+      "code": "65475"
+    },
+    {
+      "id": "7060",
+      "phoneNumber": "2342342343",
+      "code": "23424"
+    },
+    {
+      "id": "0dd4",
+      "phoneNumber": "4563456354",
+      "code": "34566"
+    },
+    {
+      "id": "80f2",
+      "phoneNumber": "51655665165",
+      "code": "65464"
+    },
+    {
+      "id": "8cec",
+      "phoneNumber": "6516515162",
+      "code": "21212"
     }
   ],
   "team": [
@@ -224,6 +451,20 @@
       "name": "دکتر امیر حسینی",
       "role": "سرپرست بخش جراحی",
       "imageUrl": "/images/team/doctor.png"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "1",
+      "message": "مشاوره شما با دکتر رضایی تأیید شد",
+      "time": "۱۵ دقیقه پیش",
+      "isRead": false
+    },
+    {
+      "id": "2",
+      "message": "زمان مشاوره با دکتر محمدی فردا ساعت ۱۵:۰۰ است",
+      "time": "۱ ساعت پیش",
+      "isRead": true
     }
   ]
 }

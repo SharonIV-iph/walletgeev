@@ -5,6 +5,7 @@ import { ThemeProvider } from "./providers/theme-provider"
 import Navigation from "./components/Navigation"
 import { vazirmatn } from './fonts'
 import { CookieProvider } from './providers/cookie-provider'
+import ClientLayout from "./ClientLayout"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -28,8 +29,10 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Navigation />
-            {children}
+            <ClientLayout>
+              <Navigation />
+              {children}
+            </ClientLayout>
           </ThemeProvider>
         </CookieProvider>
       </body>

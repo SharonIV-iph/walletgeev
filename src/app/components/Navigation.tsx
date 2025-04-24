@@ -1,20 +1,68 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/registry/new-york-v4/ui/sheet';
-import { Menu } from 'lucide-react';
+import { BellIcon, Menu, LogOut } from 'lucide-react';
 import { ThemeToggle } from "./ThemeToggle";
 import { useAuth } from '@/hooks/useAuth';
+import { useApi } from '@/hooks/useApi';
+import Cookies from 'js-cookie';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/registry/new-york-v4/ui/dropdown-menu";
+
+interface Notification {
+  id: string;
+  message: string;
+  time: string;
+  isRead: boolean;
+}
 
 const Navigation: React.FC = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const { isAuthenticated } = useAuth();
+  const [mounted, setMounted] = useState(false);
+  const { isAuthenticated, logout } = useAuth();
+  const { get, loading } = useApi();
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      if (isAuthenticated) {
+        const response = await get<Notification[]>('/notifications');
+        if (response) {
+          setNotifications(response.data);
+        }
+      }
+    };
+
+    fetchNotifications();
+  }, [isAuthenticated, get]);
+
 
   const isActive = (path: string) => pathname === path;
+
+  const handleLogout = () => {
+    logout();
+    setNotifications([]);
+    router.push('/');
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
 
   return (
     <>
@@ -71,14 +119,48 @@ const Navigation: React.FC = () => {
           </div>
           <div className="flex items-center gap-4">
             {isAuthenticated ? (
-              <Link
-                href="/dashboard"
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive('/dashboard') ? 'text-primary' : 'text-muted-foreground'
-                }`}
-              >
-                داشبورد
-              </Link>
+              <>
+                <Link
+                  href="/dashboard"
+                  className={`text-sm font-medium transition-colors hover:text-primary ${
+                    isActive('/dashboard') ? 'text-primary' : 'text-muted-foreground'
+                  }`}
+                >
+                  داشبورد
+                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="relative p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
+                    <BellIcon className="h-5 w-5" />
+                    <span className="absolute -top-1 -right-1 h-4 w-4 bg-red-500 rounded-full text-xs text-white flex items-center justify-center">
+                      {notifications.filter(n => !n.isRead).length}
+                    </span>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="w-80 dark:bg-gray-800 dark:border-gray-700">
+                    <div className="p-2">
+                      <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-2 text-left">اعلان‌ها</h3>
+                      <div className="max-h-[300px] overflow-y-auto text-left">
+                        {notifications.map((notification) => (
+                          <DropdownMenuItem
+                            key={notification.id}
+                            className="flex flex-col items-end p-3 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer text-right"
+                          >
+                            <p className={`text-sm text-left ${notification.isRead ? 'text-gray-500 dark:text-gray-400' : 'text-gray-900 dark:text-white'}`}>
+                              {notification.message}
+                            </p>
+                            <span className="text-xs text-gray-400 dark:text-gray-500 mt-1">{notification.time}</span>
+                          </DropdownMenuItem>
+                        ))}
+                      </div>
+                    </div>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+                <button
+                  onClick={handleLogout}
+                  className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                >
+                  <LogOut className="h-5 w-5" />
+                </button>
+              </>
             ) : (
               <nav className="flex items-center gap-4">
                 <Link
