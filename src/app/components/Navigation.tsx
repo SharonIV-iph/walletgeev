@@ -151,7 +151,7 @@ const Navigation: React.FC = () => {
                       {notifications.filter(n => !n.read).length}
                     </span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="start" className="w-80">
+                  <DropdownMenuContent align="center" className="w-80">
                     <div className="p-2">
                       <h3 className="text-sm font-medium mb-2 text-left">اعلان‌ها</h3>
                       <div className="max-h-[300px] overflow-y-auto">
@@ -262,4 +262,4 @@ const Navigation: React.FC = () => {
   );
 };
 
-export default Navigation; 
+export default Navigation;
