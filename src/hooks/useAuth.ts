@@ -33,6 +33,7 @@ export function useAuth() {
 
   return {
     isAuthenticated,
+    setIsAuthenticated,
     token,
     login,
     logout

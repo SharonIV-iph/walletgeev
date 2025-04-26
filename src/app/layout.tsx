@@ -1,8 +1,8 @@
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "./providers/theme-provider"
-import Navigation from "./components/Navigation"
+import { ThemeProvider } from "next-themes"
+
 import { vazirmatn } from './fonts'
 import { CookieProvider } from './providers/cookie-provider'
 import ClientLayout from "./ClientLayout"
@@ -30,7 +30,7 @@ export default function RootLayout({
             disableTransitionOnChange
           >
             <ClientLayout>
-              <Navigation />
+
               {children}
             </ClientLayout>
           </ThemeProvider>

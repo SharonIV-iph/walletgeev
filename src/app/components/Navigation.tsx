@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/registry/new-york-v4/ui/sheet';
-import { BellIcon, Menu, LogOut } from 'lucide-react';
+import { BellIcon, Menu, LogOut, User, ChevronDown, HomeIcon, UserIcon } from 'lucide-react';
 import { ThemeToggle } from "./ThemeToggle";
 import { useAuth } from '@/hooks/useAuth';
 import { useApi } from '@/hooks/useApi';
@@ -23,9 +23,10 @@ const Navigation: React.FC = () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
-  const { isAuthenticated, logout } = useAuth();
+  const { isAuthenticated, logout, setIsAuthenticated } = useAuth();
   const { get, loading } = useApi();
   const [notifications, setNotifications] = useState<Notification[]>([]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -50,6 +51,7 @@ const Navigation: React.FC = () => {
   const handleLogout = () => {
     logout();
     setNotifications([]);
+    setIsAuthenticated(false);
     router.push('/');
   };
 
@@ -114,14 +116,34 @@ const Navigation: React.FC = () => {
           <div className="flex items-center gap-4">
             {isAuthenticated ? (
               <>
-                <Link
-                  href="/dashboard"
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    isActive('/dashboard') ? 'text-primary' : 'text-muted-foreground'
-                  }`}
-                >
-                  داشبورد
-                </Link>
+                <DropdownMenu>
+                  <DropdownMenuTrigger className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors">
+                    <User className="h-6 w-6" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="center" className="w-28 items-center justify-center flex flex-col gap-1">
+                  <DropdownMenuItem asChild>
+                      <Link href="/dashboard/profile" className="flex items-center justify-end gap-2 w-24 cursor-pointer py-3 px-3">
+                        پروفایل
+                        <UserIcon className="h-6 w-6" />
+                      </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuItem asChild>
+                      <Link href="/dashboard" className="flex items-center justify-end gap-2 w-24 cursor-pointer py-3 px-3">
+                        داشبورد
+                        <HomeIcon className="h-6 w-6" />
+                      </Link>
+                    </DropdownMenuItem>
+
+                    <DropdownMenuItem
+                      onClick={handleLogout}
+                      className="flex items-center justify-end gap-2 w-24 cursor-pointer py-3 px-3"
+                    >
+                      خروج
+                      <LogOut className="h-6 w-6" />
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+
                 <DropdownMenu>
                   <DropdownMenuTrigger className="relative p-2 text-muted-foreground hover:text-foreground hover:bg-accent rounded-lg transition-colors">
                     <BellIcon className="h-5 w-5" />
@@ -129,7 +151,7 @@ const Navigation: React.FC = () => {
                       {notifications.filter(n => !n.read).length}
                     </span>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="center" className="w-80">
+                  <DropdownMenuContent align="start" className="w-80">
                     <div className="p-2">
                       <h3 className="text-sm font-medium mb-2 text-left">اعلان‌ها</h3>
                       <div className="max-h-[300px] overflow-y-auto">
@@ -150,12 +172,6 @@ const Navigation: React.FC = () => {
                     </div>
                   </DropdownMenuContent>
                 </DropdownMenu>
-                <button
-                  onClick={handleLogout}
-                  className="p-2 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                >
-                  <LogOut className="h-5 w-5" />
-                </button>
               </>
             ) : (
               <nav className="flex items-center gap-4">

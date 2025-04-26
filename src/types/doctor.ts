@@ -16,4 +16,7 @@ export interface Consultation {
   uuid: string;
   name: string;
   assigned: Doctor[];
+  status: 'active' | 'closed';
+  createdAt: string;
+  lastMessage?: string;
 } 

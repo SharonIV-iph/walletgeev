@@ -1,24 +1,21 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import { Bell, LogOut, Home, Calendar, User, Settings, MessageSquare } from 'lucide-react';
+import { Home, MessageSquare, User } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/new-york-v4/ui/avatar";
-import { Card } from "@/registry/new-york-v4/ui/card";
-import { ScrollArea } from "@/registry/new-york-v4/ui/scroll-area";
 import { useAuth } from '@/hooks/useAuth';
 import { useApi } from '@/hooks/useApi';
+import { Consultation } from '@/types/doctor';
 import { useRouter } from 'next/navigation';
-import { Doctor, Consultation } from '@/types/doctor';
-import { Notification } from '@/types/components';
-import Link from 'next/link';
 
-export default function Dashboard() {
+export default function MessagesPage() {
+  const pathname = usePathname();
   const router = useRouter();
   const { isAuthenticated } = useAuth();
   const { get, loading, error } = useApi();
   const [consultations, setConsultations] = useState<Consultation[]>([]);
-
-
 
   useEffect(() => {
     const fetchConsultations = async () => {
@@ -33,55 +30,28 @@ export default function Dashboard() {
     }
   }, [isAuthenticated, get]);
 
-  const navItems = [
-    { icon: Home, label: 'داشبورد', href: '/dashboard' },
-    { icon: Calendar, label: 'نوبت‌ها', href: '/dashboard/appointments' },
-    { icon: MessageSquare, label: 'پیام‌ها', href: '/dashboard/messages' },
-    { icon: User, label: 'پروفایل', href: '/dashboard/profile' },
-    { icon: Settings, label: 'تنظیمات', href: '/dashboard/settings' },
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex">
-      {/* Sidebar */}
-      <aside className="w-64 bg-white dark:bg-gray-800 shadow-sm h-screen sticky top-0">
-        <div className="p-4 flex flex-col h-full">
-          {/* User Profile */}
-          <div className="mb-8 flex items-center justify-between">
-            <div className="flex items-center space-x-3 space-x-reverse">
-              <div className="text-right">
-                <p className="text-sm font-medium text-gray-900 dark:text-white">سمیرا حیدری کیا</p>
-              </div>
-            </div>
-          </div>
+    <main className="p-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">پرونده‌ها و پیام‌ها</h2>
 
-          {/* Navigation */}
-          <nav className="flex-1">
-            <ul className="space-y-2">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <li key={item.label}>
-                    <Link
-                      href={item.href}
-                      className="flex items-center space-x-3 space-x-reverse p-3 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
-                    >
-                      <Icon className="h-5 w-5" />
-                      <span>{item.label}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
+        {/* Search and Filter */}
+        <div className="mb-6 flex gap-4">
+          <input
+            type="text"
+            placeholder="جستجو در پرونده‌ها..."
+            className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white"
+          />
+          <select className="px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-800 dark:text-white">
+            <option value="">همه پرونده‌ها</option>
+            <option value="active">پرونده‌های فعال</option>
+            <option value="closed">پرونده‌های بسته شده</option>
+          </select>
         </div>
-      </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 p-8">
-        <Card className="p-6 dark:bg-gray-800 dark:border-gray-700">
-          <h2 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">آخرین مشاوره‌ها</h2>
-          <ScrollArea className="h-[400px] pr-4">
+        {/* Messages List */}
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
+          <div className="divide-y divide-gray-200 dark:divide-gray-700">
             {loading ? (
               <div className="flex justify-center items-center h-40">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
@@ -91,38 +61,50 @@ export default function Dashboard() {
                 {error.message}
               </div>
             ) : (
-              <div className="space-y-4">
-                {consultations.map((consultation) => (
-                  <div
-                    key={consultation.id}
-                    className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 rounded-lg border border-gray-100 dark:border-gray-700"
-                  >
-                    <button onClick={() => router.push(`/dashboard/chats/${consultation.uuid}`)} className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm">
-                      مشاهده جزئیات
-                    </button>
-                    <div className="flex items-center space-x-4 space-x-reverse">
-                      <div className="text-left">
-                        <p className="font-medium text-gray-900 dark:text-white">{consultation.name}</p>
-                        <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {consultation.assigned.map(doctor => doctor.name).join('، ')}
-                        </p>
-                      </div>
+              consultations.map((consultation) => (
+                <div
+                  key={consultation.id}
+                  className="p-4 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+                  onClick={() => router.push(`/dashboard/chats/${consultation.uuid}`)}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
                       <div className="flex -space-x-2">
                         {consultation.assigned.map((doctor, index) => (
-                          <Avatar key={doctor.id} className="h-12 w-12 border-2 border-white dark:border-gray-800">
+                          <Avatar key={doctor.id} className="h-10 w-10 border-2 border-white dark:border-gray-800">
                             <AvatarImage src={doctor.imageUrl} alt={doctor.name} />
                             <AvatarFallback>{doctor.name[0]}</AvatarFallback>
                           </Avatar>
                         ))}
                       </div>
+                      <div>
+                        <p className="font-medium text-gray-800 dark:text-white">{consultation.name}</p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          {consultation.assigned.map(doctor => doctor.name).join('، ')}
+                        </p>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-4">
+                      <span className="text-sm text-gray-500 dark:text-gray-400">
+                        {new Date(consultation.createdAt).toLocaleDateString('fa-IR')}
+                      </span>
+                      <span className={`px-2 py-1 text-xs rounded-full ${consultation.status === 'active'
+                          ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                          : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                        }`}>
+                        {consultation.status === 'active' ? 'فعال' : 'بسته شده'}
+                      </span>
                     </div>
                   </div>
-                ))}
-              </div>
+                  <p className="mt-2 text-gray-600 dark:text-gray-300">
+                    {consultation.lastMessage || 'بدون پیام'}
+                  </p>
+                </div>
+              ))
             )}
-          </ScrollArea>
-        </Card>
-      </main>
-    </div>
+          </div>
+        </div>
+      </div>
+    </main>
   );
 } 
