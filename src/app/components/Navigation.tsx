@@ -67,7 +67,7 @@ const Navigation: React.FC = () => {
           <div className="flex items-center gap-6">
             <Link href="/" className="flex items-center">
               <span className="font-bold text-lg">
-                هتل ما
+               ولت یار
               </span>
             </Link>
             <nav className="hidden md:flex items-center gap-6">
@@ -79,13 +79,23 @@ const Navigation: React.FC = () => {
               >
                 خانه
               </Link>
+
+
               <Link
-                href="/about"
+                href="/services"
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive('/about') ? 'text-primary' : 'text-muted-foreground'
+                  isActive('/services') ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
-                درباره ما
+                خدمات
+              </Link>
+              <Link
+                href="/consultants"
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  isActive('/consultants') ? 'text-primary' : 'text-muted-foreground'
+                }`}
+              >
+                متخصصین
               </Link>
               <Link
                 href="/blog"
@@ -96,13 +106,14 @@ const Navigation: React.FC = () => {
                 بلاگ
               </Link>
               <Link
-                href="/pricing"
+                href="/about"
                 className={`text-sm font-medium transition-colors hover:text-primary ${
-                  isActive('/pricing') ? 'text-primary' : 'text-muted-foreground'
+                  isActive('/about') ? 'text-primary' : 'text-muted-foreground'
                 }`}
               >
-                قیمت‌ها
+                درباره ما
               </Link>
+
               <Link
                 href="/contact"
                 className={`text-sm font-medium transition-colors hover:text-primary ${

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/registry/new-york-v4/ui/avatar";
 import { useAuth } from '@/hooks/useAuth';
 import { useApi } from '@/hooks/useApi';
-import { Consultation } from '@/types/doctor';
+import { Consultation } from '@/types/consultant';
 import { useRouter } from 'next/navigation';
 
 export default function MessagesPage() {
@@ -70,17 +70,17 @@ export default function MessagesPage() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="flex -space-x-2">
-                        {consultation.assigned.map((doctor, index) => (
-                          <Avatar key={doctor.id} className="h-10 w-10 border-2 border-white dark:border-gray-800">
-                            <AvatarImage src={doctor.imageUrl} alt={doctor.name} />
-                            <AvatarFallback>{doctor.name[0]}</AvatarFallback>
+                        {consultation.assigned.map((consultant, index) => (
+                          <Avatar key={consultant.id} className="h-10 w-10 border-2 border-white dark:border-gray-800">
+                            <AvatarImage src={consultant.imageUrl} alt={consultant.name} />
+                            <AvatarFallback>{consultant.name[0]}</AvatarFallback>
                           </Avatar>
                         ))}
                       </div>
                       <div>
                         <p className="font-medium text-gray-800 dark:text-white">{consultation.name}</p>
                         <p className="text-sm text-gray-500 dark:text-gray-400">
-                          {consultation.assigned.map(doctor => doctor.name).join('، ')}
+                          {consultation.assigned.map(consultant => consultant.name).join('، ')}
                         </p>
                       </div>
                     </div>
@@ -89,8 +89,8 @@ export default function MessagesPage() {
                         {new Date(consultation.createdAt).toLocaleDateString('fa-IR')}
                       </span>
                       <span className={`px-2 py-1 text-xs rounded-full ${consultation.status === 'active'
-                          ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
-                          : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
+                        ? 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-100'
+                        : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300'
                         }`}>
                         {consultation.status === 'active' ? 'فعال' : 'بسته شده'}
                       </span>
@@ -107,4 +107,4 @@ export default function MessagesPage() {
       </div>
     </main>
   );
-} 
+}

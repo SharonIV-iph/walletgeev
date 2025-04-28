@@ -10,8 +10,8 @@ import ClientLayout from "./ClientLayout"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "کلینیک تخصصی",
-  description: "ارائه خدمات درمانی با بالاترین استانداردها",
+  title: "ولت یار - نگهبان دارایی های بلاکچینی شما",
+  description: "ارائه خدمات مشاوره بلاکچین با بالاترین استانداردها",
 }
 
 export default function RootLayout({

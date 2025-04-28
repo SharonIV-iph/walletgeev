@@ -1,146 +1,147 @@
-import { Doctor } from './doctor';
+import { Consultant } from './consultant';
 
 export interface GalleryItem {
-  id: string;
-  imageUrl: string;
-  caption: string;
+    id: string;
+    imageUrl: string;
+    caption: string;
 }
 
 export interface GalleryProps {
-  items: GalleryItem[];
+    items: GalleryItem[];
 }
 
 export interface Testimonial {
-  id: string;
-  name: string;
-  role: string;
-  image: string;
-  content: string;
-  rating: number;
+    id: string;
+    name: string;
+    role: string;
+    image: string;
+    content: string;
+    rating: number;
 }
 
 export interface TestimonialsProps {
-  testimonials: Testimonial[];
+    testimonials: Testimonial[];
 }
 
 export interface TeamMember {
-  id: string;
-  name: string;
-  role: string;
-  imageUrl: string;
-  bio?: string;
+    id: string;
+    name: string;
+    role: string;
+    imageUrl: string;
+    bio?: string;
 }
 
 export interface TeamSectionProps {
-  team: TeamMember[];
+    team: TeamMember[];
 }
 
 export interface Service {
-  id: number;
-  title: string;
-  description: string;
-  icon: string;
+    id: string;
+    title: string;
+    description: string;
+    shortDescription: string;
+    iconUrl: string;
+    imageUrl: string;
 }
 
 export interface ServicesProps {
-  services: Service[];
+    services: Service[];
 }
 
 export interface HeroProps {
-  title: string;
-  subtitle: string;
-  ctaText: string;
-  ctaLink: string;
+    title: string;
+    subtitle: string;
+    ctaText: string;
+    ctaLink: string;
 }
 
 export interface Feature {
-  id: string;
-  title: string;
-  description: string;
-  icon: string;
+    id: string;
+    title: string;
+    description: string;
+    icon: string;
 }
 
 export interface FeaturesProps {
-  features: Feature[];
+    features: Feature[];
 }
 
-export interface FeaturedDoctorsProps {
-  doctors: Doctor[];
+export interface FeaturedConsultantsProps {
+    consultants: Consultant[];
 }
 
 export interface SearchModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+    isOpen: boolean;
+    onOpenChange: (open: boolean) => void;
+    searchQuery: string;
+    setSearchQuery: (query: string) => void;
+    onSearch: (e: React.FormEvent) => void;
 }
 
 export interface Notification {
-  id: string;
-  title: string;
-  message: string;
-  type: 'info' | 'success' | 'warning' | 'error';
-  read: boolean;
-  createdAt: string;
+    id: string;
+    title: string;
+    message: string;
+    type: 'info' | 'success' | 'warning' | 'error';
+    read: boolean;
+    createdAt: string;
 }
 
 export interface ButtonProps {
-  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
-  size?: 'default' | 'sm' | 'lg' | 'icon';
-  children: React.ReactNode;
-  className?: string;
-  onClick?: () => void;
-  disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
+    variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link';
+    size?: 'default' | 'sm' | 'lg' | 'icon';
+    children: React.ReactNode;
+    className?: string;
+    onClick?: () => void;
+    disabled?: boolean;
+    type?: 'button' | 'submit' | 'reset';
 }
 
 export interface Feature {
-  title: string;
-  description: string;
-  icon: string;
+    title: string;
+    description: string;
+    icon: string;
 }
 
 export interface FeaturesProps {
-  features: Feature[];
+    features: Feature[];
 }
 
 export interface Service {
-  title: string;
-  description: string;
-  icon: string;
+    title: string;
+    description: string;
+    icon: string;
 }
 
 export interface ServicesProps {
-  services: Service[];
-}
-
-export interface SearchModalProps {
-  isOpen: boolean;
-  onClose: () => void;
+    services: Service[];
 }
 
 export interface HeroProps {
-  title: string;
-  description: string;
-  ctaText: string;
-  ctaLink: string;
+    title: string;
+    description: string;
+    ctaText: string;
+    ctaLink: string;
 }
 
-export interface FeaturedDoctorsProps {
-  doctors: Doctor[];
+export interface FeaturedConsultantsProps {
+    consultants: Consultant[];
 }
 
 export interface Notification {
-  id: string;
-  title: string;
-  message: string;
-  type: 'info' | 'success' | 'warning' | 'error';
-  read: boolean;
-  createdAt: string;
+    id: string;
+    title: string;
+    message: string;
+    type: 'info' | 'success' | 'warning' | 'error';
+    read: boolean;
+    createdAt: string;
 }
 
 export interface BlogPost {
-  id: number;
-  title: string;
-  date: string;
-  excerpt: string;
-  image: string;
-} 
+    id: number;
+    title: string;
+    date: string;
+    excerpt: string;
+    image: string;
+    description: string;
+}

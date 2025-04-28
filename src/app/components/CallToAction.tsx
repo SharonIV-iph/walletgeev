@@ -9,8 +9,8 @@ export default function CallToAction() {
     <section className="bg-purple-600 py-16 my-16 rounded-2xl overflow-hidden relative">
       <div className="absolute left-0 top-0 w-1/3 h-full">
         <img
-          src="/images/doctor-cta.jpg"
-          alt="Doctor with patient"
+          src="/images/consultant-cta.jpg"
+          alt="Consultant with patient"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-l from-purple-600 to-transparent"></div>
@@ -22,7 +22,7 @@ export default function CallToAction() {
             اکنون وقت مشاوره خود را رزرو کنید!
           </h2>
           <p className="text-lg mb-8 text-purple-100">
-            با رزرو آنلاین نوبت، در کمترین زمان ممکن با پزشک مورد نظر خود ملاقات کنید.
+            با رزرو آنلاین نوبت، در کمترین زمان ممکن با متخصص مورد نظر خود ملاقات کنید.
           </p>
           <Button
             size="lg"
@@ -35,4 +35,4 @@ export default function CallToAction() {
       </div>
     </section>
   );
-} 
+}

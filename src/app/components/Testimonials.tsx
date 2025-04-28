@@ -22,9 +22,9 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
   return (
     <section className="py-16 bg-muted">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-foreground mb-4">نظرات بیماران</h2>
+        <h2 className="text-3xl font-bold text-foreground mb-4">نظرات یار فن ها</h2>
         <p className="text-muted-foreground">
-          آنچه بیماران ما درباره خدمات ما می‌گویند
+          آنچه یار فن ها ما درباره خدمات ما می‌گویند
         </p>
       </div>
 
@@ -68,11 +68,10 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
-                              className={`h-4 w-4 ${
-                                i < Math.floor(testimonial.rating)
+                              className={`h-4 w-4 ${i < Math.floor(testimonial.rating)
                                   ? 'text-yellow-400 fill-current'
                                   : 'text-muted-foreground'
-                              }`}
+                                }`}
                             />
                           ))}
                         </div>

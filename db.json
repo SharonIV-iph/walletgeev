@@ -1,184 +1,320 @@
 {
-  "doctors": [
+  "consultants": [
     {
       "id": "1",
-      "name": "دکتر علی محمدی",
-      "specialty": "متخصص قلب و عروق",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
       "rating": 4.8,
-      "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
       "recommendationCount": 96,
       "viewCount": 2733,
       "isOnline": true,
       "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
       "contactInfo": {
         "phone": "021-44302020",
-        "email": "dr.mohammadi@example.com",
-        "website": "www.drmohammadi.com"
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
       },
       "availableTimes": [
         "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
         "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
       ],
       "education": [
-        "متخصص قلب و عروق از دانشگاه تهران",
-        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
       ],
       "languages": [
         "فارسی",
         "انگلیسی"
       ],
-      "insurances": [
-        "تامین اجتماعی",
-        "خدمات درمانی",
-        "نیروهای مسلح"
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
       ]
     },
     {
       "id": "2",
-      "name": "دکتر علی محمدی",
-      "specialty": "متخصص قلب و عروق",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
       "rating": 4.8,
-      "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
       "recommendationCount": 96,
       "viewCount": 2733,
       "isOnline": true,
       "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
       "contactInfo": {
         "phone": "021-44302020",
-        "email": "dr.mohammadi@example.com",
-        "website": "www.drmohammadi.com"
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
       },
       "availableTimes": [
         "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
         "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
       ],
       "education": [
-        "متخصص قلب و عروق از دانشگاه تهران",
-        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
       ],
       "languages": [
         "فارسی",
         "انگلیسی"
       ],
-      "insurances": [
-        "تامین اجتماعی",
-        "خدمات درمانی",
-        "نیروهای مسلح"
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
+      ]
+    },
+    {
+      "id": "11",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
+      "rating": 4.8,
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
       ]
     },
     {
       "id": "3",
-      "name": "دکتر علی محمدی",
-      "specialty": "متخصص قلب و عروق",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
       "rating": 4.8,
-      "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
       "recommendationCount": 96,
       "viewCount": 2733,
       "isOnline": true,
       "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
       "contactInfo": {
         "phone": "021-44302020",
-        "email": "dr.mohammadi@example.com",
-        "website": "www.drmohammadi.com"
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
       },
       "availableTimes": [
         "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
         "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
       ],
       "education": [
-        "متخصص قلب و عروق از دانشگاه تهران",
-        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
       ],
       "languages": [
         "فارسی",
         "انگلیسی"
       ],
-      "insurances": [
-        "تامین اجتماعی",
-        "خدمات درمانی",
-        "نیروهای مسلح"
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
       ]
     },
     {
       "id": "4",
-      "name": "دکتر علی محمدی",
-      "specialty": "متخصص قلب و عروق",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
       "rating": 4.8,
-      "imageUrl": "/images/doctors/doctor.png",
-      "description": "متخصص با بیش از 15 سال تجربه در درمان بیماری‌های قلبی و عروقی",
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
       "recommendationCount": 96,
       "viewCount": 2733,
       "isOnline": true,
       "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
       "contactInfo": {
         "phone": "021-44302020",
-        "email": "dr.mohammadi@example.com",
-        "website": "www.drmohammadi.com"
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
       },
       "availableTimes": [
         "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
         "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
       ],
       "education": [
-        "متخصص قلب و عروق از دانشگاه تهران",
-        "فوق تخصص آنژیوپلاستی از دانشگاه شهید بهشتی"
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
       ],
       "languages": [
         "فارسی",
         "انگلیسی"
       ],
-      "insurances": [
-        "تامین اجتماعی",
-        "خدمات درمانی",
-        "نیروهای مسلح"
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
+      "rating": 4.8,
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
+      "rating": 4.8,
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "متخصص علی محمدی",
+      "expertise": "مشاور کسب و کار",
+      "rating": 4.8,
+      "imageUrl": "/images/consultants/consultant.png",
+      "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+      "recommendationCount": 96,
+      "viewCount": 2733,
+      "isOnline": true,
+      "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+      "contactInfo": {
+        "phone": "021-44302020",
+        "email": "consultant.mohammadi@example.com",
+        "website": "www.consultantmohammadi.com"
+      },
+      "availableTimes": [
+        "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+        "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+      ],
+      "education": [
+        "مشاور کسب و کار از دانشگاه تهران",
+        "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+      ],
+      "languages": [
+        "فارسی",
+        "انگلیسی"
+      ],
+      "services": [
+        "مشاوره استراتژی",
+        "مشاوره مدیریت",
+        "مشاوره بازاریابی"
       ]
     }
   ],
   "testimonials": [
     {
       "id": "1",
-      "quote": "بهترین تجربه درمانی که تا به حال داشته‌ام. پزشکان بسیار حرفه‌ای و مجرب هستند.",
+      "quote": "بهترین تجربه مشاوره که تا به حال داشته‌ام. متخصصین بسیار حرفه‌ای و مجرب هستند.",
       "name": "مریم احمدی",
       "rating": 5,
-      "imageUrl": "/images/testimonials/doctor.png"
+      "imageUrl": "/images/testimonials/consultant.png"
     },
     {
       "id": "2",
-      "quote": "کادر پزشکی فوق‌العاده و رسیدگی عالی به بیماران. قطعاً به دوستانم پیشنهاد می‌کنم.",
+      "quote": "کادر مشاوره فوق‌العاده و رسیدگی عالی به مشتریان. قطعاً به دوستانم پیشنهاد می‌کنم.",
       "name": "رضا کمالی",
       "rating": 4.8,
-      "imageUrl": "/images/testimonials/doctor.png"
+      "imageUrl": "/images/testimonials/consultant.png"
     },
     {
       "id": "3",
       "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
       "name": "نسرین محمودی",
       "rating": 4.9,
-      "imageUrl": "/images/testimonials/doctor.png"
+      "imageUrl": "/images/testimonials/consultant.png"
     },
     {
       "id": "4",
       "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
       "name": "نسرین محمودی",
       "rating": 4.9,
-      "imageUrl": "/images/testimonials/doctor.png"
+      "imageUrl": "/images/testimonials/consultant.png"
     },
     {
       "id": "5",
       "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
       "name": "نسرین محمودی",
       "rating": 4.9,
-      "imageUrl": "/images/testimonials/doctor.png"
+      "imageUrl": "/images/testimonials/consultant.png"
     },
     {
       "id": "6",
       "quote": "مشاوره آنلاین بسیار کارآمد و مفید بود. از وقت و هزینه‌ام به خوبی صرفه‌جویی شد.",
       "name": "نسرین محمودی",
       "rating": 4.9,
-      "imageUrl": "/images/testimonials/doctor.png"
+      "imageUrl": "/images/testimonials/consultant.png"
     }
   ],
   "services": [
@@ -186,47 +322,611 @@
       "id": "1",
       "icon": "VideoCamera",
       "title": "مشاوره آنلاین",
-      "description": "مشاوره تخصصی آنلاین با پزشکان مجرب"
+      "shortDescription": "مشاوره تخصصی آنلاین با متخصصین مجرب",
+      "description": "<b>      مشاوره تخصصی آنلاین با متخصصین مجرب      </b>      ",
+      "iconUrl": "/images/services/calendar.png",
+      "imageUrl": "/images/services/calendar.png",
+      "consultants": [
+        {
+          "id": "1",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        }
+      ]
     },
     {
       "id": "2",
       "icon": "Calendar",
-      "title": "نوبت‌دهی آنلاین",
-      "description": "رزرو نوبت آنلاین در سریع‌ترین زمان ممکن"
+      "title": "رزرو جلسه آنلاین",
+      "shortDescription": "رزرو جلسه آنلاین در سریع‌ترین زمان ممکن",
+      "description": "<b>      رزرو جلسه آنلاین در سریع‌ترین زمان ممکن      </b>      ",
+      "iconUrl": "/images/services/calendar.png",
+      "imageUrl": "/images/services/calendar.png",
+      "consultants": [
+        {
+          "id": "1",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        }
+      ]
     },
     {
       "id": "3",
       "icon": "ClipboardList",
-      "title": "پرونده الکترونیک",
-      "description": "دسترسی به پرونده پزشکی به صورت آنلاین"
+      "title": "پرونده مشتری",
+      "shortDescription": "دسترسی به پرونده مشتری به صورت آنلاین",
+      "description": "<b>      دسترسی به پرونده مشتری به صورت آنلاین      </b>      ",
+      "iconUrl": "/images/services/calendar.png",
+      "imageUrl": "/images/services/calendar.png",
+      "consultants": [
+        {
+          "id": "1",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        }
+      ]
     },
     {
       "id": "4",
       "icon": "ChatAlt",
       "title": "پشتیبانی 24/7",
-      "description": "پشتیبانی شبانه‌روزی برای پاسخگویی به سوالات شما"
+      "shortDescription": "پشتیبانی شبانه‌روزی برای پاسخگویی به سوالات شما",
+      "description": "<code>      پشتیبانی شبانه‌روزی برای پاسخگویی به سوالات شما      </code>      ",
+      "iconUrl": "/images/services/calendar.png",
+      "imageUrl": "/images/services/calendar.png",
+      "consultants": [
+        {
+          "id": "1",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "متخصص علی محمدی",
+          "expertise": "مشاور کسب و کار",
+          "rating": 4.8,
+          "imageUrl": "/images/consultants/consultant.png",
+          "description": "مشاور با بیش از 15 سال تجربه در مشاوره کسب و کار و استراتژی",
+          "recommendationCount": 96,
+          "viewCount": 2733,
+          "isOnline": true,
+          "address": "تهران، بلوار شهران شمالی، بالاتر از فلکه دوم شهران، بعد از مسجد امام علی",
+          "contactInfo": {
+            "phone": "021-44302020",
+            "email": "consultant.mohammadi@example.com",
+            "website": "www.consultantmohammadi.com"
+          },
+          "availableTimes": [
+            "شنبه تا چهارشنبه: 9 صبح تا 5 عصر",
+            "پنجشنبه: 9 صبح تا 1 بعد از ظهر"
+          ],
+          "education": [
+            "مشاور کسب و کار از دانشگاه تهران",
+            "فوق تخصص استراتژی از دانشگاه شهید بهشتی"
+          ],
+          "languages": [
+            "فارسی",
+            "انگلیسی"
+          ],
+          "services": [
+            "مشاوره استراتژی",
+            "مشاوره مدیریت",
+            "مشاوره بازاریابی"
+          ]
+        }
+      ]
     }
   ],
   "gallery": [
     {
       "id": "1",
-      "imageUrl": "/images/gallery/doctor.png",
-      "caption": "فضای مدرن و آرامش‌بخش کلینیک"
+      "imageUrl": "/images/gallery/consultant.png",
+      "caption": "فضای مدرن و آرامش‌بخش آژانس"
     },
     {
       "id": "2",
-      "imageUrl": "/images/gallery/doctor.png",
-      "caption": "تجهیزات پیشرفته پزشکی"
+      "imageUrl": "/images/gallery/consultant.png",
+      "caption": "تجهیزات پیشرفته مشاوره"
     },
     {
       "id": "3",
-      "imageUrl": "/images/gallery/doctor.png",
+      "imageUrl": "/images/gallery/consultant.png",
       "caption": "کادر متخصص و مجرب"
     },
     {
       "id": "4",
-      "imageUrl": "/images/gallery/doctor.png",
-      "caption": "امکانات رفاهی برای بیماران"
+      "imageUrl": "/images/gallery/consultant.png",
+      "caption": "امکانات رفاهی برای مشتریان"
     }
   ],
   "verify": {
@@ -240,13 +940,13 @@
       "assigned": [
         {
           "id": "1",
-          "name": "دکتر علی محمدی",
-          "imageUrl": "/images/doctors/doctor.png"
+          "name": "متخصص علی محمدی",
+          "imageUrl": "/images/consultants/consultant.png"
         },
         {
           "id": "2",
-          "name": "دکتر علی محمدی",
-          "imageUrl": "/images/doctors/doctor.png"
+          "name": "متخصص علی محمدی",
+          "imageUrl": "/images/consultants/consultant.png"
         }
       ]
     },
@@ -257,13 +957,13 @@
       "assigned": [
         {
           "id": "1",
-          "name": "دکتر علی محمدی",
-          "imageUrl": "/images/doctors/doctor.png"
+          "name": "متخصص علی محمدی",
+          "imageUrl": "/images/consultants/consultant.png"
         },
         {
           "id": "2",
-          "name": "دکتر علی محمدی",
-          "imageUrl": "/images/doctors/doctor.png"
+          "name": "متخصص علی محمدی",
+          "imageUrl": "/images/consultants/consultant.png"
         }
       ]
     },
@@ -274,13 +974,13 @@
       "assigned": [
         {
           "id": "1",
-          "name": "دکتر علی محمدی",
-          "imageUrl": "/images/doctors/doctor.png"
+          "name": "متخصص علی محمدی",
+          "imageUrl": "/images/consultants/consultant.png"
         },
         {
           "id": "2",
-          "name": "دکتر علی محمدی",
-          "imageUrl": "/images/doctors/doctor.png"
+          "name": "متخصص علی محمدی",
+          "imageUrl": "/images/consultants/consultant.png"
         }
       ]
     }
@@ -466,40 +1166,76 @@
       "id": "c360",
       "phoneNumber": "6543547345",
       "code": "54636"
+    },
+    {
+      "id": "c1a4",
+      "phoneNumber": "09050386077",
+      "code": "64655"
+    },
+    {
+      "id": "c219",
+      "name": "لبغانئبزلائو",
+      "phoneNumber": "09050386077"
     }
   ],
   "team": [
     {
       "id": "1",
-      "name": "دکتر رضا جعفری",
-      "role": "مدیر کلینیک",
-      "imageUrl": "/images/team/doctor.png"
+      "name": "متخصص رضا جعفری",
+      "role": "مدیر آژانس",
+      "imageUrl": "/images/team/consultant.png"
     },
     {
       "id": "2",
-      "name": "دکتر مینا صادقی",
-      "role": "سرپرست بخش داخلی",
-      "imageUrl": "/images/team/doctor.png"
+      "name": "متخصص مینا صادقی",
+      "role": "سرپرست بخش مشاوره",
+      "imageUrl": "/images/team/consultant.png"
     },
     {
       "id": "3",
-      "name": "دکتر امیر حسینی",
-      "role": "سرپرست بخش جراحی",
-      "imageUrl": "/images/team/doctor.png"
+      "name": "متخصص امیر حسینی",
+      "role": "سرپرست بخش اجرایی",
+      "imageUrl": "/images/team/consultant.png"
     }
   ],
   "notifications": [
     {
       "id": "1",
-      "message": "مشاوره شما با دکتر رضایی تأیید شد",
+      "message": "مشاوره شما با آقای رضایی تأیید شد",
       "time": "۱۵ دقیقه پیش",
       "isRead": false
     },
     {
       "id": "2",
-      "message": "زمان مشاوره با دکتر محمدی فردا ساعت ۱۵:۰۰ است",
+      "message": "زمان مشاوره با آقای محمدی فردا ساعت ۱۵:۰۰ است",
       "time": "۱ ساعت پیش",
       "isRead": true
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "title": "۱۰ مقصد برتر سفر در سال ۱۴۰۳",
+      "date": "۲۶ فروردین ۱۴۰۳",
+      "excerpt": "مقاصد هیجان‌انگیز سفر را برای تعطیلات بعدی خود کشف کنید.",
+      "description": "<div class='entry-content entry clearfix'> <p>بیت کوین به رکورد تاریخی&zwnj;اش در این چرخه رسید و در حال حاضر بالای سطح ۹۳٬۰۰۰ دلار است؛ اما هنوز خبری از آلت سیزن نشده&zwnj;اند.</p> <h2 class='wp-block-heading' id='h-خلاصه-تحلیل'>خلاصه تحلیل</h2> <ul class='wp-block-list'> <li>در طی دو هفته اخیر، دو موج قوی سرمایه به ETFهای بیت کوین وارد شدند.</li> <li>بر خلاف بیت کوین، جریان سرمایه ETFهای اتریوم تقریبا خنثی مانده است. </li> </ul> <p>به گزارش <a href='https://insights.glassnode.com/the-week-onchain-week-16-2025/'>گلس&zwnj;نود</a>، با رشد <a href='https://nobitex.ir/btc/'>قیمت بیت کوین</a>، برای بسیاری از سرمایه&zwnj;گذاران این سوال پیش آمده&zwnj; که چرا اتریوم از بیت کوین پیروی نمی&zwnj;کند؟ برای رسیدن&zwnj; به جواب این سوال، بهتر است سرمایه ورودی به ETFهای این دو ارز دیجیتال را باهم مقایسه کنیم.</p> <p>در طی دو هفته اخیر، دو موج قوی سرمایه به ETFهای بیت کوین وارد شدند که حجم هر یک از آن&zwnj;ها تقریبا به&zwnj;اندازه ۱۰ درصد از حجم بازار اسپات بیت کوین است. این حجم از سرمایه ورودی نشان&zwnj;دهنده افزایش تقاضا از سمت سرمایه&zwnj;گذاران نهادی است.</p><div class='stream-item stream-item-in-post stream-item-inline-post aligncenter'> <a href='https://nobitex.ir/signup/?utm_source=mag&amp;utm_medium=blog&amp;utm_campaign=posts' title='ثبت نام سریع در نوبیتکس' target='_blank'> <img decoding='async' src='https://nobitex.ir/mag/wp-content/smush-webp//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png.webp' alt='ثبت نام سریع در نوبیتکس' width='728' height='91' data-lazy-src='https://nobitex.ir/mag/wp-content/smush-webp//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png.webp' data-smush-webp-fallback='{&quot;data-lazy-src&quot;:&quot;https://nobitex.ir/mag/wp-content/uploads//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png&quot;}' data-ll-status='loaded' class='entered lazyloaded'><noscript><img loading='lazy' decoding='async' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png' alt='ثبت نام سریع در نوبیتکس' width='728' height='91' /></noscript> </a> </div> <p>بر خلاف بیت کوین، جریان سرمایه ETFهای اتریوم تقریبا خنثی مانده است. در طی دو هفته اخیر حجم سرمایه واردشده به ETFهای اتریوم کمتر از ۱ درصد حجم بازار اسپات اتریوم بوده است. تفاوت بزرگ در سرمایه ورودی به ETFهای دو ارز دیجیتال برتر بازار نشان می&zwnj;دهد که اتریوم تقاضای کافی ندارد و به این سوال پاسخ می&zwnj;دهد که چرا این ارز دیجیتال عملکرد بسیار ضعیف&zwnj;تری در برابر بیت کوین داشته است.</p> <div class='wp-block-image'> <figure class='aligncenter size-full'><img decoding='async' width='1000' height='562' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' class='full-size entered lazyloaded' alt='' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' data-ll-status='loaded'><noscript><img loading='lazy' decoding='async' width='1000' height='562' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' class='full-size' alt='' class='wp-image-69522'/></noscript><figcaption class='wp-element-caption'>خالص سرمایه ورودی به ETFهای بیت کوین بر اساس حجم بازار اسپات آن</figcaption></figure></div> <p>رشد اتریوم به عنوان پرچمدار بازار آلت کوین&zwnj;ها، اهمیت زیادی برای آلت سیزن دارد. ضمن اینکه بعضی از تحلیلگران حتی باور دارند آلت سیزن به شکل گذشته دیگر اتفاق نمی&zwnj;افتد و هر بخش از بازار آلت کوین&zwnj;ها، بسته به شرایط بازار ترند شده&zwnj;&zwnj; و رشد خواهند کرد.</p> <div class='wp-block-image'> <figure class='aligncenter size-large'><a href='wp-content/uploads//2025/04/image-383.png'><img decoding='async' width='1024' height='706' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' class='full-size entered lazyloaded' alt='شاخص آلت سیزن' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' data-ll-status='loaded'><noscript><img loading='lazy' decoding='async' width='1024' height='706' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' class='full-size' alt='شاخص آلت سیزن' class='wp-image-69560'/></noscript></a><figcaption class='wp-element-caption'>شاخص آلت سیزن</figcaption></figure></div> <p></p> <div class='stream-item stream-item-below-post-content'><span class='stream-title'> </span> <a href='https://nobitex.ir/signup/?utm_source=mag&amp;utm_medium=blog&amp;utm_campaign=postsend' title='شروع معامله&zwnj;گری در نوبیتکس' target='_blank'> <img src='data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20728%2091'%3E%3C/svg%3E' alt='شروع معامله&zwnj;گری در نوبیتکس' width='728' height='91' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2024/12/nobitex-sign-up-banner-2.webp'><noscript><img src='https://nobitex.ir/mag/wp-content/uploads//2024/12/nobitex-sign-up-banner-2.webp' alt='شروع معامله&zwnj;گری در نوبیتکس' width='728' height='91' /></noscript> </a> </div><div class='post-bottom-meta post-bottom-tags post-tags-modern'><div class='post-bottom-meta-title'><span class='tie-icon-tags' aria-hidden='true'></span> برچسب ها</div><span class='tagcloud'><a href='https://nobitex.ir/mag/tag/selected/' rel='tag'>برگزیده</a></span></div> </div>",
+      "image": "/images/screenshot2.png"
+    },
+    {
+      "id": "2",
+      "title": "انواع اتاق‌های هتل به زبان ساده",
+      "date": "۲۱ فروردین ۱۴۰۳",
+      "excerpt": "با انواع مختلف اتاق‌های هتل آشنا شوید و مناسب‌ترین را برای اقامت خود انتخاب کنید.",
+      "description": "<div class='entry-content entry clearfix'> <p>بیت کوین به رکورد تاریخی&zwnj;اش در این چرخه رسید و در حال حاضر بالای سطح ۹۳٬۰۰۰ دلار است؛ اما هنوز خبری از آلت سیزن نشده&zwnj;اند.</p> <h2 class='wp-block-heading' id='h-خلاصه-تحلیل'>خلاصه تحلیل</h2> <ul class='wp-block-list'> <li>در طی دو هفته اخیر، دو موج قوی سرمایه به ETFهای بیت کوین وارد شدند.</li> <li>بر خلاف بیت کوین، جریان سرمایه ETFهای اتریوم تقریبا خنثی مانده است. </li> </ul> <p>به گزارش <a href='https://insights.glassnode.com/the-week-onchain-week-16-2025/'>گلس&zwnj;نود</a>، با رشد <a href='https://nobitex.ir/btc/'>قیمت بیت کوین</a>، برای بسیاری از سرمایه&zwnj;گذاران این سوال پیش آمده&zwnj; که چرا اتریوم از بیت کوین پیروی نمی&zwnj;کند؟ برای رسیدن&zwnj; به جواب این سوال، بهتر است سرمایه ورودی به ETFهای این دو ارز دیجیتال را باهم مقایسه کنیم.</p> <p>در طی دو هفته اخیر، دو موج قوی سرمایه به ETFهای بیت کوین وارد شدند که حجم هر یک از آن&zwnj;ها تقریبا به&zwnj;اندازه ۱۰ درصد از حجم بازار اسپات بیت کوین است. این حجم از سرمایه ورودی نشان&zwnj;دهنده افزایش تقاضا از سمت سرمایه&zwnj;گذاران نهادی است.</p><div class='stream-item stream-item-in-post stream-item-inline-post aligncenter'> <a href='https://nobitex.ir/signup/?utm_source=mag&amp;utm_medium=blog&amp;utm_campaign=posts' title='ثبت نام سریع در نوبیتکس' target='_blank'> <img decoding='async' src='https://nobitex.ir/mag/wp-content/smush-webp//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png.webp' alt='ثبت نام سریع در نوبیتکس' width='728' height='91' data-lazy-src='https://nobitex.ir/mag/wp-content/smush-webp//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png.webp' data-smush-webp-fallback='{&quot;data-lazy-src&quot;:&quot;https://nobitex.ir/mag/wp-content/uploads//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png&quot;}' data-ll-status='loaded' class='entered lazyloaded'><noscript><img loading='lazy' decoding='async' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png' alt='ثبت نام سریع در نوبیتکس' width='728' height='91' /></noscript> </a> </div> <p>بر خلاف بیت کوین، جریان سرمایه ETFهای اتریوم تقریبا خنثی مانده است. در طی دو هفته اخیر حجم سرمایه واردشده به ETFهای اتریوم کمتر از ۱ درصد حجم بازار اسپات اتریوم بوده است. تفاوت بزرگ در سرمایه ورودی به ETFهای دو ارز دیجیتال برتر بازار نشان می&zwnj;دهد که اتریوم تقاضای کافی ندارد و به این سوال پاسخ می&zwnj;دهد که چرا این ارز دیجیتال عملکرد بسیار ضعیف&zwnj;تری در برابر بیت کوین داشته است.</p> <div class='wp-block-image'> <figure class='aligncenter size-full'><img decoding='async' width='1000' height='562' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' class='full-size entered lazyloaded' alt='' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' data-ll-status='loaded'><noscript><img loading='lazy' decoding='async' width='1000' height='562' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' class='full-size' alt='' class='wp-image-69522'/></noscript><figcaption class='wp-element-caption'>خالص سرمایه ورودی به ETFهای بیت کوین بر اساس حجم بازار اسپات آن</figcaption></figure></div> <p>رشد اتریوم به عنوان پرچمدار بازار آلت کوین&zwnj;ها، اهمیت زیادی برای آلت سیزن دارد. ضمن اینکه بعضی از تحلیلگران حتی باور دارند آلت سیزن به شکل گذشته دیگر اتفاق نمی&zwnj;افتد و هر بخش از بازار آلت کوین&zwnj;ها، بسته به شرایط بازار ترند شده&zwnj;&zwnj; و رشد خواهند کرد.</p> <div class='wp-block-image'> <figure class='aligncenter size-large'><a href='wp-content/uploads//2025/04/image-383.png'><img decoding='async' width='1024' height='706' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' class='full-size entered lazyloaded' alt='شاخص آلت سیزن' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' data-ll-status='loaded'><noscript><img loading='lazy' decoding='async' width='1024' height='706' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' class='full-size' alt='شاخص آلت سیزن' class='wp-image-69560'/></noscript></a><figcaption class='wp-element-caption'>شاخص آلت سیزن</figcaption></figure></div> <p></p> <div class='stream-item stream-item-below-post-content'><span class='stream-title'> </span> <a href='https://nobitex.ir/signup/?utm_source=mag&amp;utm_medium=blog&amp;utm_campaign=postsend' title='شروع معامله&zwnj;گری در نوبیتکس' target='_blank'> <img src='data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20728%2091'%3E%3C/svg%3E' alt='شروع معامله&zwnj;گری در نوبیتکس' width='728' height='91' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2024/12/nobitex-sign-up-banner-2.webp'><noscript><img src='https://nobitex.ir/mag/wp-content/uploads//2024/12/nobitex-sign-up-banner-2.webp' alt='شروع معامله&zwnj;گری در نوبیتکس' width='728' height='91' /></noscript> </a> </div><div class='post-bottom-meta post-bottom-tags post-tags-modern'><div class='post-bottom-meta-title'><span class='tie-icon-tags' aria-hidden='true'></span> برچسب ها</div><span class='tagcloud'><a href='https://nobitex.ir/mag/tag/selected/' rel='tag'>برگزیده</a></span></div> </div>",
+      "image": "/images/screenshot2.png"
+    },
+    {
+      "id": "3",
+      "title": "نکات سفر برای مسافران تازه‌کار",
+      "date": "۱۶ فروردین ۱۴۰۳",
+      "excerpt": "نکات ضروری برای اقامت راحت و لذت‌بخش در هتل برای اولین بار.",
+      "description": "<div class='entry-content entry clearfix'> <p>بیت کوین به رکورد تاریخی&zwnj;اش در این چرخه رسید و در حال حاضر بالای سطح ۹۳٬۰۰۰ دلار است؛ اما هنوز خبری از آلت سیزن نشده&zwnj;اند.</p> <h2 class='wp-block-heading' id='h-خلاصه-تحلیل'>خلاصه تحلیل</h2> <ul class='wp-block-list'> <li>در طی دو هفته اخیر، دو موج قوی سرمایه به ETFهای بیت کوین وارد شدند.</li> <li>بر خلاف بیت کوین، جریان سرمایه ETFهای اتریوم تقریبا خنثی مانده است. </li> </ul> <p>به گزارش <a href='https://insights.glassnode.com/the-week-onchain-week-16-2025/'>گلس&zwnj;نود</a>، با رشد <a href='https://nobitex.ir/btc/'>قیمت بیت کوین</a>، برای بسیاری از سرمایه&zwnj;گذاران این سوال پیش آمده&zwnj; که چرا اتریوم از بیت کوین پیروی نمی&zwnj;کند؟ برای رسیدن&zwnj; به جواب این سوال، بهتر است سرمایه ورودی به ETFهای این دو ارز دیجیتال را باهم مقایسه کنیم.</p> <p>در طی دو هفته اخیر، دو موج قوی سرمایه به ETFهای بیت کوین وارد شدند که حجم هر یک از آن&zwnj;ها تقریبا به&zwnj;اندازه ۱۰ درصد از حجم بازار اسپات بیت کوین است. این حجم از سرمایه ورودی نشان&zwnj;دهنده افزایش تقاضا از سمت سرمایه&zwnj;گذاران نهادی است.</p><div class='stream-item stream-item-in-post stream-item-inline-post aligncenter'> <a href='https://nobitex.ir/signup/?utm_source=mag&amp;utm_medium=blog&amp;utm_campaign=posts' title='ثبت نام سریع در نوبیتکس' target='_blank'> <img decoding='async' src='https://nobitex.ir/mag/wp-content/smush-webp//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png.webp' alt='ثبت نام سریع در نوبیتکس' width='728' height='91' data-lazy-src='https://nobitex.ir/mag/wp-content/smush-webp//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png.webp' data-smush-webp-fallback='{&quot;data-lazy-src&quot;:&quot;https://nobitex.ir/mag/wp-content/uploads//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png&quot;}' data-ll-status='loaded' class='entered lazyloaded'><noscript><img loading='lazy' decoding='async' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/01/ثبت_نام-سریع-در-نوبیتکس-1.png' alt='ثبت نام سریع در نوبیتکس' width='728' height='91' /></noscript> </a> </div> <p>بر خلاف بیت کوین، جریان سرمایه ETFهای اتریوم تقریبا خنثی مانده است. در طی دو هفته اخیر حجم سرمایه واردشده به ETFهای اتریوم کمتر از ۱ درصد حجم بازار اسپات اتریوم بوده است. تفاوت بزرگ در سرمایه ورودی به ETFهای دو ارز دیجیتال برتر بازار نشان می&zwnj;دهد که اتریوم تقاضای کافی ندارد و به این سوال پاسخ می&zwnj;دهد که چرا این ارز دیجیتال عملکرد بسیار ضعیف&zwnj;تری در برابر بیت کوین داشته است.</p> <div class='wp-block-image'> <figure class='aligncenter size-full'><img decoding='async' width='1000' height='562' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' class='full-size entered lazyloaded' alt='' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' data-ll-status='loaded'><noscript><img loading='lazy' decoding='async' width='1000' height='562' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/Group-137691974-2.png' class='full-size' alt='' class='wp-image-69522'/></noscript><figcaption class='wp-element-caption'>خالص سرمایه ورودی به ETFهای بیت کوین بر اساس حجم بازار اسپات آن</figcaption></figure></div> <p>رشد اتریوم به عنوان پرچمدار بازار آلت کوین&zwnj;ها، اهمیت زیادی برای آلت سیزن دارد. ضمن اینکه بعضی از تحلیلگران حتی باور دارند آلت سیزن به شکل گذشته دیگر اتفاق نمی&zwnj;افتد و هر بخش از بازار آلت کوین&zwnj;ها، بسته به شرایط بازار ترند شده&zwnj;&zwnj; و رشد خواهند کرد.</p> <div class='wp-block-image'> <figure class='aligncenter size-large'><a href='wp-content/uploads//2025/04/image-383.png'><img decoding='async' width='1024' height='706' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' class='full-size entered lazyloaded' alt='شاخص آلت سیزن' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' data-ll-status='loaded'><noscript><img loading='lazy' decoding='async' width='1024' height='706' loading='lazy' src='https://nobitex.ir/mag/wp-content/uploads//2025/04/image-383-1024x706.png' class='full-size' alt='شاخص آلت سیزن' class='wp-image-69560'/></noscript></a><figcaption class='wp-element-caption'>شاخص آلت سیزن</figcaption></figure></div> <p></p> <div class='stream-item stream-item-below-post-content'><span class='stream-title'> </span> <a href='https://nobitex.ir/signup/?utm_source=mag&amp;utm_medium=blog&amp;utm_campaign=postsend' title='شروع معامله&zwnj;گری در نوبیتکس' target='_blank'> <img src='data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20728%2091'%3E%3C/svg%3E' alt='شروع معامله&zwnj;گری در نوبیتکس' width='728' height='91' data-lazy-src='https://nobitex.ir/mag/wp-content/uploads//2024/12/nobitex-sign-up-banner-2.webp'><noscript><img src='https://nobitex.ir/mag/wp-content/uploads//2024/12/nobitex-sign-up-banner-2.webp' alt='شروع معامله&zwnj;گری در نوبیتکس' width='728' height='91' /></noscript> </a> </div><div class='post-bottom-meta post-bottom-tags post-tags-modern'><div class='post-bottom-meta-title'><span class='tie-icon-tags' aria-hidden='true'></span> برچسب ها</div><span class='tagcloud'><a href='https://nobitex.ir/mag/tag/selected/' rel='tag'>برگزیده</a></span></div> </div>",
+      "image": "/images/screenshot2.png"
     }
   ]
 }
