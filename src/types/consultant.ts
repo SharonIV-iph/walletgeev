@@ -17,6 +17,11 @@ export interface Consultation {
     name: string;
     assigned: Consultant[];
     status: 'active' | 'closed';
-    createdAt: string;
-    lastMessage?: string;
+    created_at: string;
+    discription: string;
+    messages: Array<{
+        sender_id: string;
+        message: string;
+        created_at: string;
+    }>;
 }
