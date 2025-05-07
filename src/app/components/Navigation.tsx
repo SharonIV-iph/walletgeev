@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/registry/new-york-v4/ui/button';
@@ -19,15 +19,31 @@ import {
 import { Notification } from '@/types/components';
 
 const Navigation: React.FC = () => {
+    // Navigation hooks
     const pathname = usePathname();
     const router = useRouter();
-    const [isOpen, setIsOpen] = useState(false);
-    const [mounted, setMounted] = useState(false);
+
+    // Auth hooks
     const { isAuthenticated, logout, setIsAuthenticated } = useAuth();
     const { get, loading } = useApi();
+
+    // State hooks
+    const [isOpen, setIsOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
     const [notifications, setNotifications] = useState<Notification[]>([]);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    // Memoized callbacks
+    const isActive = useCallback((path: string) => pathname === path, [pathname]);
+
+    const handleLogout = useCallback(() => {
+        logout();
+        setNotifications([]);
+        setIsAuthenticated(false);
+        router.push('/');
+    }, [logout, router, setIsAuthenticated]);
+
+    // Effects
     useEffect(() => {
         setMounted(true);
     }, []);
@@ -45,20 +61,9 @@ const Navigation: React.FC = () => {
         fetchNotifications();
     }, [isAuthenticated, get]);
 
-
-    const isActive = (path: string) => pathname === path;
-
-    const handleLogout = () => {
-        logout();
-        setNotifications([]);
-        setIsAuthenticated(false);
-        router.push('/');
-    };
-
     if (!mounted) {
         return null;
     }
-
 
     return (
         <>

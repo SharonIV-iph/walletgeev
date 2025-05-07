@@ -72,6 +72,10 @@ export class ApiService {
     }
 
     async patch<T>(endpoint: string, data: any, options?: RequestInit): Promise<ApiResponse<T>> {
-        return this.request<T>('PATCH', endpoint, data, options);
+        return this.request<T>(endpoint, {
+            ...options,
+            method: 'PATCH',
+            body: JSON.stringify(data)
+        });
     }
 }
