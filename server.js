@@ -1,15 +1,12 @@
 #!/usr/bin/env node
 
 const { spawn } = require('child_process');
+const path = require('path');
 
-const jsonServerProcess = spawn('json-server', ['--watch', 'db.json', '--port', '3001']);
-
-jsonServerProcess.stdout.on('data', (data) => {
-    console.log(`${data}`);
-});
-
-jsonServerProcess.stderr.on('data', (data) => {
-    console.error(`${data}`);
+// Use npx to run json-server
+const jsonServerProcess = spawn('npx', ['json-server', '--watch', 'db.json', '--port', '3001'], {
+    shell: true,
+    stdio: 'inherit'
 });
 
 jsonServerProcess.on('close', (code) => {
