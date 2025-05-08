@@ -18,6 +18,43 @@ import {
 } from "@/registry/new-york-v4/ui/dropdown-menu";
 import { Notification } from '@/types/components';
 
+const SkeletonNavigation = () => {
+    return (
+        <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container flex h-14 items-center justify-between">
+                <div className="flex items-center gap-6">
+                    {/* Logo Skeleton */}
+                    <div className="h-6 w-24 bg-muted rounded animate-pulse" />
+
+                    {/* Navigation Links Skeleton */}
+                    <nav className="hidden md:flex items-center gap-6">
+                        {[1, 2, 3, 4, 5, 6].map((index) => (
+                            <div key={index} className="h-4 w-16 bg-muted rounded animate-pulse" />
+                        ))}
+                    </nav>
+                </div>
+
+                <div className="flex items-center gap-4">
+                    {/* Auth State Skeleton */}
+                    <div className="hidden md:flex items-center gap-4">
+                        <div className="h-4 w-16 bg-muted rounded animate-pulse" />
+                        <div className="h-4 w-20 bg-muted rounded animate-pulse" />
+                    </div>
+
+                    {/* Notification Bell Skeleton */}
+                    <div className="h-5 w-5 bg-muted rounded-full animate-pulse" />
+
+                    {/* Theme Toggle Skeleton */}
+                    <div className="h-5 w-5 bg-muted rounded-full animate-pulse" />
+
+                    {/* Mobile Menu Button Skeleton */}
+                    <div className="md:hidden h-5 w-5 bg-muted rounded animate-pulse" />
+                </div>
+            </div>
+        </nav>
+    );
+};
+
 const Navigation: React.FC = () => {
     // Navigation hooks
     const pathname = usePathname();
@@ -61,8 +98,8 @@ const Navigation: React.FC = () => {
         fetchNotifications();
     }, [isAuthenticated, get]);
 
-    if (!mounted) {
-        return null;
+    if (!mounted || loading) {
+        return <SkeletonNavigation />;
     }
 
     return (
@@ -214,8 +251,8 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/services"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/services')
-                                                    ? 'bg-primary/10 text-primary'
-                                                    : 'hover:bg-accent'
+                                                ? 'bg-primary/10 text-primary'
+                                                : 'hover:bg-accent'
                                                 }`}
                                             onClick={() => setIsOpen(false)}
                                         >

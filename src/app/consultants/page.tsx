@@ -5,12 +5,52 @@ import { Star, ChevronLeft, ChevronRight, Search } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/registry/new-york-v4/ui/card';
 import { Button } from '@/registry/new-york-v4/ui/button';
 import { Input } from '@/registry/new-york-v4/ui/input';
+import { Skeleton } from '@/registry/new-york-v4/ui/skeleton';
 
 import React, { useEffect, useState } from 'react';
 import { useApi } from '@/hooks/useApi';
 import SearchModal from '@/components/SearchModal';
 
 import { Consultant } from '@/types';
+
+// Skeleton Components
+const ConsultantCardSkeleton = () => (
+    <Card className="overflow-hidden">
+        <div className="relative h-48">
+            <Skeleton className="w-full h-full" />
+        </div>
+        <CardHeader>
+            <Skeleton className="h-6 w-3/4 mb-2" />
+            <Skeleton className="h-4 w-1/2" />
+        </CardHeader>
+        <CardContent>
+            <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                    <Skeleton key={i} className="h-5 w-5 mr-1" />
+                ))}
+            </div>
+            <Skeleton className="h-4 w-full mb-2" />
+            <Skeleton className="h-4 w-3/4" />
+        </CardContent>
+        <CardFooter>
+            <Skeleton className="h-10 w-full" />
+        </CardFooter>
+    </Card>
+);
+
+const HeaderSkeleton = () => (
+    <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-12">
+        <div className="container mx-auto px-4">
+            <div className="text-center mb-8">
+                <Skeleton className="h-10 w-48 mx-auto mb-4" />
+                <Skeleton className="h-6 w-72 mx-auto" />
+            </div>
+            <div className="max-w-2xl mx-auto">
+                <Skeleton className="h-14 w-full rounded-full" />
+            </div>
+        </div>
+    </div>
+);
 
 export default function Consultants() {
     //TODO: handle best pagination
@@ -58,9 +98,18 @@ export default function Consultants() {
     };
 
     if (loading) {
-        return <div className="flex items-center justify-center min-h-screen">
-            <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"></div>
-        </div>;
+        return (
+            <main className="min-h-screen bg-background text-foreground rtl" dir="rtl">
+                <HeaderSkeleton />
+                <div className="container mx-auto px-4 py-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {[...Array(4)].map((_, index) => (
+                            <ConsultantCardSkeleton key={index} />
+                        ))}
+                    </div>
+                </div>
+            </main>
+        );
     }
 
     return (

@@ -9,6 +9,7 @@ import { Card, CardContent, CardHeader } from '@/registry/new-york-v4/ui/card';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from '@/registry/new-york-v4/ui/avatar';
+import { Skeleton } from '@/registry/new-york-v4/ui/skeleton';
 
 interface Service {
     id: string;
@@ -24,6 +25,63 @@ interface Service {
         description: string;
     }[];
 }
+
+const ServiceDetailSkeleton = () => {
+    return (
+        <div className="min-h-screen bg-background dark:bg-gray-900">
+            {/* Header Image Skeleton */}
+            <div className="relative w-full h-64 md:h-96">
+                <Skeleton className="w-full h-full" />
+                <div className="absolute inset-0 flex items-end justify-start pb-5">
+                    <Skeleton className="h-12 w-64 mx-4" />
+                </div>
+            </div>
+
+            {/* Main Content Skeleton */}
+            <main className="container mx-auto py-8">
+                <div className="flex flex-col gap-8">
+                    {/* Service Details Card Skeleton */}
+                    <Card className="shadow-lg dark:bg-gray-800">
+                        <CardHeader>
+                            <Skeleton className="h-6 w-32" />
+                        </CardHeader>
+                        <CardContent className="space-y-6">
+                            <div>
+                                <Skeleton className="h-5 w-24 mb-4" />
+                                <div className="space-y-2">
+                                    <Skeleton className="h-4 w-full" />
+                                    <Skeleton className="h-4 w-full" />
+                                    <Skeleton className="h-4 w-3/4" />
+                                </div>
+                            </div>
+                        </CardContent>
+                    </Card>
+
+                    {/* Related Consultants Skeleton */}
+                    <Card className="shadow-lg dark:bg-gray-800">
+                        <CardHeader>
+                            <Skeleton className="h-6 w-40" />
+                        </CardHeader>
+                        <CardContent>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                {[...Array(4)].map((_, index) => (
+                                    <div key={index} className="flex items-start gap-4 p-4">
+                                        <Skeleton className="h-16 w-16 rounded-full" />
+                                        <div className="flex-1 space-y-2">
+                                            <Skeleton className="h-5 w-32" />
+                                            <Skeleton className="h-4 w-24" />
+                                            <Skeleton className="h-4 w-16" />
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </CardContent>
+                    </Card>
+                </div>
+            </main>
+        </div>
+    );
+};
 
 export default function ServiceDetailPage() {
     const router = useRouter();
@@ -54,11 +112,7 @@ export default function ServiceDetailPage() {
     }
 
     if (loading || !service) {
-        return (
-            <div className="flex items-center justify-center min-h-screen">
-                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary" />
-            </div>
-        );
+        return <ServiceDetailSkeleton />;
     }
 
     return (
@@ -82,7 +136,7 @@ export default function ServiceDetailPage() {
 
             {/* Main Content */}
             <main className="container mx-auto py-8">
-                <div className="flex flex-colgap-8">
+                <div className="flex flex-col gap-8">
                     {/* Right Column */}
                     <div className="w-full">
                         <Card className="shadow-lg dark:bg-gray-800">
@@ -135,7 +189,6 @@ export default function ServiceDetailPage() {
                             </CardContent>
                         </Card>
                     </div>
-
                 </div>
             </main>
         </div>

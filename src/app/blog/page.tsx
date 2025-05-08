@@ -22,21 +22,23 @@ const BlogPage: React.FC = () => {
         fetchPosts();
     }, [get]);
 
-    if (loading) {
+    if (loading || posts.length === 0) {
         return (
             <main>
                 <div className="relative">
                     <div className="max-w-screen-xl mx-auto py-20 lg:py-24">
                         <h1 className="text-3xl font-bold text-center mb-8 text-foreground">بلاگ ما</h1>
                         <div className="flex flex-wrap -mx-4">
-                            {[1, 2, 3].map((i) => (
+                            {[1, 2, 3, 4, 5, 6].map((i) => (
                                 <div key={i} className="w-full md:w-1/3 px-4 mb-8">
                                     <Card className="overflow-hidden">
-                                        <Skeleton className="h-48 w-full" />
+                                        <Skeleton className="h-48 w-full bg-muted" />
                                         <div className="p-6">
-                                            <Skeleton className="h-6 w-3/4 mb-2" />
-                                            <Skeleton className="h-4 w-1/2 mb-4" />
-                                            <Skeleton className="h-4 w-full" />
+                                            <Skeleton className="h-7 w-4/5 mb-3 bg-muted" />
+                                            <Skeleton className="h-4 w-1/3 mb-4 bg-muted" />
+                                            <Skeleton className="h-4 w-full mb-2 bg-muted" />
+                                            <Skeleton className="h-4 w-5/6 mb-2 bg-muted" />
+                                            <Skeleton className="h-4 w-4/6 bg-muted" />
                                         </div>
                                     </Card>
                                 </div>

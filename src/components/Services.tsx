@@ -4,8 +4,37 @@ import React from 'react';
 import { Service, ServicesProps } from '@/types/components';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Skeleton } from '@/registry/new-york-v4/ui/skeleton';
 
-export default function Services({ services }: ServicesProps) {
+const ServiceSkeleton = () => {
+    return (
+        <div className="flex flex-col items-center text-center p-6 rounded-lg bg-card border shadow-sm">
+            <div className="mb-4 p-3 bg-primary/10 rounded-full">
+                <Skeleton className="w-12 h-12 rounded-full" />
+            </div>
+            <Skeleton className="h-6 w-32 mb-2" />
+            <Skeleton className="h-4 w-48" />
+        </div>
+    );
+};
+
+export default function Services({ services, isLoading = false }: ServicesProps & { isLoading?: boolean }) {
+    if (isLoading) {
+        return (
+            <section className="py-16">
+                <div className="text-center mb-12">
+                    <Skeleton className="h-8 w-48 mx-auto mb-4" />
+                    <Skeleton className="h-4 w-64 mx-auto" />
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {[...Array(8)].map((_, index) => (
+                        <ServiceSkeleton key={index} />
+                    ))}
+                </div>
+            </section>
+        );
+    }
+
     return (
         <section className="py-16">
             <div className="text-center mb-12">

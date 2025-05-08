@@ -23,18 +23,33 @@ const BlogPostPage: React.FC = () => {
         fetchPost();
     }, [id, get]);
 
-    if (loading) {
+    if (loading || !post) {
         return (
             <main>
                 <div className="max-w-screen-xl mx-auto py-20 lg:py-24 px-4">
-                    <Skeleton className="h-8 w-3/4 mb-4" />
-                    <Skeleton className="h-4 w-1/4 mb-8" />
-                    <Skeleton className="h-96 w-full mb-8" />
-                    <div className="space-y-4">
-                        <Skeleton className="h-4 w-full" />
-                        <Skeleton className="h-4 w-5/6" />
-                        <Skeleton className="h-4 w-4/6" />
-                    </div>
+                    <article className="prose prose-lg max-w-none">
+                        {/* Title skeleton */}
+                        <Skeleton className="h-10 w-3/4 mb-4" />
+
+                        {/* Date skeleton */}
+                        <Skeleton className="h-5 w-32 mb-8" />
+
+                        {/* Image skeleton */}
+                        <div className="relative w-full h-96 mb-8">
+                            <Skeleton className="w-full h-full rounded-lg" />
+                        </div>
+
+                        {/* Content skeletons */}
+                        <div className="space-y-4">
+                            <Skeleton className="h-4 w-full" />
+                            <Skeleton className="h-4 w-full" />
+                            <Skeleton className="h-4 w-5/6" />
+                            <Skeleton className="h-4 w-full" />
+                            <Skeleton className="h-4 w-4/6" />
+                            <Skeleton className="h-4 w-full" />
+                            <Skeleton className="h-4 w-3/4" />
+                        </div>
+                    </article>
                 </div>
             </main>
         );
@@ -52,17 +67,6 @@ const BlogPostPage: React.FC = () => {
         );
     }
 
-    if (!post) {
-        return (
-            <main>
-                <div className="max-w-screen-xl mx-auto py-20 lg:py-24 px-4">
-                    <div className="text-center text-muted-foreground">
-                        مطلب مورد نظر یافت نشد.
-                    </div>
-                </div>
-            </main>
-        );
-    }
 
     return (
         <main>

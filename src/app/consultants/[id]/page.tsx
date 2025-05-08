@@ -9,6 +9,7 @@ import { Button } from '@/registry/new-york-v4/ui/button';
 import { Card, CardContent, CardHeader } from '@/registry/new-york-v4/ui/card';
 import { UserIcon, ChatBubbleLeftIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import { ChevronRightIcon } from '@heroicons/react/24/solid';
+import { Skeleton } from '@/registry/new-york-v4/ui/skeleton';
 
 interface Consultant {
   id: string;
@@ -31,6 +32,111 @@ interface Consultant {
   languages: string[];
   services: string[];
 }
+
+const ConsultantDetailSkeleton = () => {
+  return (
+    <div className="min-h-screen bg-background dark:bg-gray-900">
+      {/* Header Skeleton */}
+      <header className="bg-gray-50 dark:bg-gray-800 rounded-b-lg shadow-sm p-6">
+        <div className="container mx-auto flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Skeleton className="h-16 w-16 rounded-full" />
+            <div>
+              <Skeleton className="h-8 w-48 mb-2" />
+              <Skeleton className="h-4 w-32" />
+            </div>
+          </div>
+          <div className="flex items-center gap-4">
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-4 w-24" />
+            <Skeleton className="h-4 w-24" />
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content Skeleton */}
+      <main className="container mx-auto py-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Right Column Skeleton */}
+          <div className="md:col-span-2">
+            <Card className="shadow-lg">
+              <CardHeader>
+                <Skeleton className="h-6 w-32" />
+              </CardHeader>
+              <CardContent className="space-y-6">
+                {/* Description Skeleton */}
+                <div>
+                  <Skeleton className="h-5 w-24 mb-2" />
+                  <Skeleton className="h-4 w-full mb-2" />
+                  <Skeleton className="h-4 w-5/6" />
+                </div>
+
+                {/* Address Skeleton */}
+                <div>
+                  <Skeleton className="h-5 w-24 mb-2" />
+                  <Skeleton className="h-4 w-3/4" />
+                </div>
+
+                {/* Contact Info Skeleton */}
+                <div>
+                  <Skeleton className="h-5 w-32 mb-2" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-48" />
+                  </div>
+                </div>
+
+                {/* Available Times Skeleton */}
+                <div>
+                  <Skeleton className="h-5 w-32 mb-2" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-40" />
+                    <Skeleton className="h-4 w-40" />
+                    <Skeleton className="h-4 w-40" />
+                  </div>
+                </div>
+
+                {/* Education Skeleton */}
+                <div>
+                  <Skeleton className="h-5 w-24 mb-2" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-56" />
+                    <Skeleton className="h-4 w-56" />
+                  </div>
+                </div>
+
+                {/* Services Skeleton */}
+                <div>
+                  <Skeleton className="h-5 w-40 mb-2" />
+                  <div className="space-y-2">
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-48" />
+                    <Skeleton className="h-4 w-48" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Left Column Skeleton */}
+          <div className="md:col-span-1">
+            <nav className="flex items-center gap-2 mb-6">
+              <Skeleton className="h-10 w-10 rounded-full" />
+              <Skeleton className="h-4 w-48" />
+            </nav>
+
+            <div className="flex flex-col gap-4">
+              <Skeleton className="h-10 w-full" />
+              <Skeleton className="h-10 w-full" />
+              <Skeleton className="h-10 w-full" />
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+};
 
 export default function ConsultantDetailPage() {
   const router = useRouter();
@@ -59,12 +165,9 @@ export default function ConsultantDetailPage() {
       </div>
     );
   }
+
   if (loading || !consultant) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary" />
-      </div>
-    );
+    return <ConsultantDetailSkeleton />;
   }
 
   return (

@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, MessageSquare, User } from 'lucide-react';
+import { Home, MessageSquare, User, Plus as PlusIcon } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -11,6 +11,31 @@ import { Consultation } from '@/types/consultant';
 import { useRouter } from 'next/navigation';
 import { Input } from "@/registry/new-york-v4/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/registry/new-york-v4/ui/select";
+import { Skeleton } from "@/registry/new-york-v4/ui/skeleton";
+import { Button } from "@/registry/new-york-v4/ui/button";
+
+const ConsultationSkeleton = () => (
+    <div className="p-4">
+        <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                    {[1, 2].map((i) => (
+                        <Skeleton key={i} className="h-10 w-10 rounded-full" />
+                    ))}
+                </div>
+                <div>
+                    <Skeleton className="h-5 w-32 mb-2" />
+                    <Skeleton className="h-4 w-24" />
+                </div>
+            </div>
+            <div className="flex items-center gap-4">
+                <Skeleton className="h-6 w-20" />
+                <Skeleton className="h-4 w-32" />
+            </div>
+        </div>
+        <Skeleton className="h-4 w-full mt-2" />
+    </div>
+);
 
 export default function MessagesPage() {
     const pathname = usePathname();
@@ -20,24 +45,42 @@ export default function MessagesPage() {
     const [consultations, setConsultations] = useState<Consultation[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [statusFilter, setStatusFilter] = useState<string>('all');
+    const [isSearching, setIsSearching] = useState(false);
+    const [initialLoading, setInitialLoading] = useState(true);
 
     useEffect(() => {
         const fetchConsultations = async () => {
-            const response = await get<Consultation[]>('/chats');
-            if (response) {
-                console.log('Consultations data:', response.data);
-                const transformedData = response.data.map(chat => ({
-                    ...chat,
-                    created_at: chat.created_at || new Date().toISOString()
-                }));
-                setConsultations(transformedData);
+            try {
+                const response = await get<Consultation[]>('/chats');
+                if (response) {
+                    console.log('Consultations data:', response.data);
+                    const transformedData = response.data.map(chat => ({
+                        ...chat,
+                        created_at: chat.created_at || new Date().toISOString()
+                    }));
+                    setConsultations(transformedData);
+                }
+            } finally {
+                setInitialLoading(false);
             }
         };
 
         if (isAuthenticated) {
             fetchConsultations();
+        } else {
+            setInitialLoading(false);
         }
     }, [isAuthenticated, get]);
+
+    // Add debounced search effect
+    useEffect(() => {
+        setIsSearching(true);
+        const timer = setTimeout(() => {
+            setIsSearching(false);
+        }, 500); // 500ms debounce
+
+        return () => clearTimeout(timer);
+    }, [searchQuery, statusFilter]);
 
     const filteredConsultations = consultations.filter(consultation => {
         const matchesSearch = searchQuery === '' ||
@@ -51,10 +94,18 @@ export default function MessagesPage() {
         return matchesSearch && matchesStatus;
     });
 
+    const showSkeletons = loading || isSearching || initialLoading;
+
     return (
         <main className="p-8" dir="rtl">
             <div className="max-w-7xl mx-auto">
-                <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">پرونده‌ها و پیام‌ها</h2>
+                <div className="flex items-center justify-between">
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">پرونده‌ها و پیام‌ها</h2>
+                    <Button variant="outline" onClick={() => router.push('/dashboard/chat/create')}>
+                        <PlusIcon className="w-4 h-4 mr-2" />
+                        پرونده جدید
+                    </Button>
+                </div>
 
                 {/* Search and Filter */}
                 <div className="mb-6 flex gap-4">
@@ -80,10 +131,12 @@ export default function MessagesPage() {
                 {/* Messages List */}
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden">
                     <div className="divide-y divide-gray-200 dark:divide-gray-700">
-                        {loading ? (
-                            <div className="flex justify-center items-center h-40">
-                                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 dark:border-white"></div>
-                            </div>
+                        {showSkeletons ? (
+                            <>
+                                <ConsultationSkeleton />
+                                <ConsultationSkeleton />
+                                <ConsultationSkeleton />
+                            </>
                         ) : error ? (
                             <div className="text-center text-red-500 dark:text-red-400 p-4">
                                 {error.message}

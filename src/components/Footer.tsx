@@ -12,7 +12,6 @@ const footerLinks = [
             { label: 'ارتباط با ما', href: '/contact' },
             { label: 'شرایط استفاده از خدمات', href: '/terms-of-service' },
             { label: 'قوانین مقررات', href: '/privacy-policy' },
-
         ],
     },
     {
@@ -40,7 +39,54 @@ const socialLinks = [
     { icon: Linkedin, href: '#' },
 ];
 
-export default function Footer() {
+const SkeletonFooter = () => {
+    return (
+        <footer className="bg-gray-900 text-white py-12">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    {/* Logo and Description Skeleton */}
+                    <div>
+                        <div className="h-10 w-32 bg-gray-700 rounded animate-pulse mb-4" />
+                        <div className="h-4 w-full bg-gray-700 rounded animate-pulse mb-2" />
+                        <div className="h-4 w-3/4 bg-gray-700 rounded animate-pulse" />
+                        <div className="flex space-x-4 space-x-reverse mt-6">
+                            {[1, 2, 3, 4].map((index) => (
+                                <div
+                                    key={index}
+                                    className="h-5 w-5 bg-gray-700 rounded-full animate-pulse"
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Footer Links Skeleton */}
+                    {[1, 2, 3].map((sectionIndex) => (
+                        <div key={sectionIndex}>
+                            <div className="h-6 w-24 bg-gray-700 rounded animate-pulse mb-4" />
+                            <ul className="space-y-2">
+                                {[1, 2, 3].map((linkIndex) => (
+                                    <li key={linkIndex}>
+                                        <div className="h-4 w-full bg-gray-700 rounded animate-pulse" />
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
+
+                <div className="border-t border-gray-800 mt-12 pt-8 text-center">
+                    <div className="h-4 w-48 bg-gray-700 rounded animate-pulse mx-auto" />
+                </div>
+            </div>
+        </footer>
+    );
+};
+
+export default function Footer({ isLoading = false }) {
+    if (isLoading) {
+        return <SkeletonFooter />;
+    }
+
     return (
         <footer className="bg-gray-900 text-white py-12">
             <div className="container mx-auto px-4">

@@ -29,10 +29,11 @@ interface ChatResponse {
 function ChatDetailPage() {
     const params = useParams();
     const router = useRouter();
-    const { get, put, patch, loading } = useApi();
+    const { get, put, patch, loading: apiLoading } = useApi();
     const [chat, setChat] = useState<ChatResponse | null>(null);
     const [newMessage, setNewMessage] = useState('');
     const [isSending, setIsSending] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const isInitialized = useRef(false);
 
     useEffect(() => {
@@ -40,6 +41,7 @@ function ChatDetailPage() {
             isInitialized.current = true;
             const fetchChat = async () => {
                 try {
+                    setIsLoading(true);
                     const response = await get<ChatResponse>(`/chats/${params.id}`);
                     if (response) {
                         setChat(response.data);
@@ -50,6 +52,8 @@ function ChatDetailPage() {
                 } catch (error) {
                     console.error('Error fetching chat:', error);
                     router.push('/dashboard/chat/create');
+                } finally {
+                    setIsLoading(false);
                 }
             };
 
@@ -126,16 +130,60 @@ function ChatDetailPage() {
         }
     };
 
-    if (loading) {
+    if (isLoading || apiLoading || !chat) {
         return (
-            <div className="flex justify-center items-center h-screen">
-                <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900"></div>
+            <div className="max-w-4xl mx-auto p-6" dir="rtl">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow">
+                    {/* Chat Header Skeleton */}
+                    <div className="p-4 border-b dark:border-gray-700 flex justify-between items-center">
+                        <div className="space-y-2">
+                            <div className="h-6 w-48 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                            <div className="h-4 w-64 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                        </div>
+                        <div className="h-8 w-24 bg-gray-200 dark:bg-gray-700 rounded animate-pulse"></div>
+                    </div>
+
+                    {/* Chat Messages Skeleton */}
+                    <div className="h-[500px] overflow-y-auto p-4 space-y-4">
+                        {[...Array(5)].map((_, index) => (
+                            <div key={index} className={`flex items-start gap-2 ${index % 2 === 0 ? 'justify-end' : 'justify-start'}`}>
+                                {index % 2 === 0 ? null : (
+                                    <div className="w-8 h-8 rounded-full bg-gray-200 dark:bg-gray-700 animate-pulse"></div>
+                                )}
+                                <div className={`max-w-[70%] rounded-lg p-3 ${index % 2 === 0
+                                    ? 'bg-gray-200 dark:bg-gray-700'
+                                    : 'bg-gray-100 dark:bg-gray-700'
+                                    }`}>
+                                    <div className="h-4 w-32 bg-gray-300 dark:bg-gray-600 rounded animate-pulse"></div>
+                                    <div className="h-3 w-20 bg-gray-300 dark:bg-gray-600 rounded animate-pulse mt-2"></div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Chat Input Skeleton */}
+                    <div className="p-4 border-t dark:border-gray-700">
+                        <div className="flex space-x-2">
+                            <div className="flex-1 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+                            <div className="w-24 h-10 bg-gray-200 dark:bg-gray-700 rounded-lg animate-pulse"></div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Consultants List Skeleton */}
+                <div className="mt-6">
+                    <div className="h-6 w-48 bg-gray-200 dark:bg-gray-700 rounded animate-pulse mb-3"></div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {[...Array(2)].map((_, index) => (
+                            <div key={index} className="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <div className="w-12 h-12 rounded-full bg-gray-200 dark:bg-gray-600 animate-pulse"></div>
+                                <div className="h-4 w-32 bg-gray-200 dark:bg-gray-600 rounded animate-pulse"></div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
             </div>
         );
-    }
-
-    if (!chat) {
-        return null; // Will redirect in useEffect
     }
 
     return (
@@ -251,4 +299,4 @@ function ChatDetailPage() {
     );
 }
 
-export default dynamic(() => Promise.resolve(ChatDetailPage), { ssr: false });
+export default ChatDetailPage;
