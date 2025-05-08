@@ -114,21 +114,3 @@ If needed, you can further use the `web_scraper.py` file to scrape the web page 
 # Scratchpad
 
 ## Current Task: Create Blog Post Detail Page
-
-Plan:
-[X] Create dynamic route for blog post detail page
-[X] Fetch single post data using useApi hook
-[X] Add loading and error states
-[X] Display post content with HTML rendering
-[X] Add styling for the post content
-[X] Test the implementation
-
-Progress:
-
-- Created dynamic route for blog posts at /blog/[id]
-- Added loading state with skeleton UI
-- Added error handling with user-friendly message
-- Implemented HTML rendering for post content
-- Added hover effects to blog post cards
-- Updated BlogPost type to include description field
-- Added links to individual blog posts

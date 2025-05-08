@@ -2,11 +2,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { useApi } from '@/hooks/useApi';
-import Header from './components/Header';
-import FeaturedConsultants from './components/FeaturedConsultants';
-import CallToAction from './components/CallToAction';
-import Services from './components/Services';
-import Testimonials from './components/Testimonials';
+import Header from '../components/Header';
+import FeaturedConsultants from '../components/FeaturedConsultants';
+import CallToAction from '../components/CallToAction';
+import Services from '../components/Services';
+import Testimonials from '../components/Testimonials';
 import { Consultant, Testimonial, Service } from '@/types';
 
 export default function Home() {

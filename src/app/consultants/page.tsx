@@ -8,7 +8,7 @@ import { Input } from '@/registry/new-york-v4/ui/input';
 
 import React, { useEffect, useState } from 'react';
 import { useApi } from '@/hooks/useApi';
-import SearchModal from '@/app/components/SearchModal';
+import SearchModal from '@/components/SearchModal';
 
 import { Consultant } from '@/types';
 

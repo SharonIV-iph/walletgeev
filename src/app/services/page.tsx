@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useApi } from '@/hooks/useApi';
-import Services from '@/app/components/Services';
+import Services from '@/components/Services';
 import { Consultant, Testimonial, Service, GalleryItem, TeamMember } from '@/types';
 
 export default function ServicesPage() {

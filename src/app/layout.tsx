@@ -1,14 +1,11 @@
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "next-themes"
 
 import { vazirmatn } from './fonts'
 import { CookieProvider } from './providers/cookie-provider'
 import ClientLayout from "./ClientLayout"
-import AIAssistant from "./components/AIAssistant"
-
-const inter = Inter({ subsets: ["latin"] })
+import AIAssistant from "../components/AIAssistant"
 
 export const metadata: Metadata = {
     title: "ولت یار - نگهبان دارایی های بلاکچینی شما",
@@ -21,8 +18,8 @@ export default function RootLayout({
     children: React.ReactNode
 }>) {
     return (
-        <html lang="fa" dir="rtl" suppressHydrationWarning className={vazirmatn.variable}>
-            <body className={`${inter.className} min-h-screen bg-background text-foreground font-sans ${vazirmatn.className}`}>
+        <html lang="fa" dir="rtl" suppressHydrationWarning>
+            <body className={`${vazirmatn.className} min-h-screen bg-background text-foreground`}>
                 <CookieProvider>
                     <ThemeProvider
                         attribute="class"
@@ -31,7 +28,6 @@ export default function RootLayout({
                         disableTransitionOnChange
                     >
                         <ClientLayout>
-
                             {children}
                         </ClientLayout>
                     </ThemeProvider>
