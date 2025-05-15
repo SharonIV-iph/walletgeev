@@ -8,7 +8,8 @@ import FeaturedConsultants from '../components/FeaturedConsultants';
 import CallToAction from '../components/CallToAction';
 import Services from '../components/Services';
 import Testimonials from '../components/Testimonials';
-import { Consultant, Testimonial, Service } from '@/types';
+import { Consultant, Testimonial, Service, Specialist } from '@/types';
+import FeaturedSpecialists from '@/components/FeaturedSpecialists';
 
 // Skeleton components
 const ServicesSkeleton = () => (
@@ -84,6 +85,7 @@ const TestimonialsSkeleton = () => (
 export default function Home() {
     const api = useApi();
     const [consultants, setConsultants] = useState<Consultant[]>([]);
+    const [specialists, setSpecialists] = useState<Specialist[]>([]);
     const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
     const [services, setServices] = useState<Service[]>([]);
     const [loading, setLoading] = useState(true);
@@ -91,13 +93,15 @@ export default function Home() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const [consultantsData, testimonialsData, servicesData] = await Promise.all([
+                const [consultantsData, specialistsData, testimonialsData, servicesData] = await Promise.all([
                     api.get<Consultant[]>('/consultants?_limit=4'),
+                    api.get<Specialist[]>('/specialists?_limit=4'),
                     api.get<Testimonial[]>('/testimonials'),
                     api.get<Service[]>('/services'),
                 ]);
 
                 if (consultantsData) setConsultants(consultantsData.data);
+                if (specialistsData) setSpecialists(specialistsData.data);
                 if (testimonialsData) setTestimonials(testimonialsData.data);
                 if (servicesData) setServices(servicesData.data);
             } catch (error) {
@@ -120,11 +124,13 @@ export default function Home() {
                         <ServicesSkeleton />
                         <CallToActionSkeleton />
                         <FeaturedConsultantsSkeleton />
+                        <FeaturedConsultantsSkeleton />
                         <TestimonialsSkeleton />
                     </>
                 ) : (
                     <>
                         <Services services={services} />
+                        <FeaturedSpecialists specialists={specialists} />
                         <CallToAction />
                         <FeaturedConsultants consultants={consultants} />
                         <Testimonials testimonials={testimonials} />

@@ -2,15 +2,7 @@ import React from 'react';
 import { Card } from "@/registry/new-york-v4/ui/card";
 import { Feature, FeaturesProps } from '@/types/components';
 
-interface Feature {
-  icon: string;
-  title: string;
-  description: string;
-}
 
-interface FeaturesProps {
-  features: Feature[];
-}
 
 const Features: React.FC<FeaturesProps> = ({ features }) => {
   return (
@@ -21,7 +13,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
             {features.map((feature, index) => (
               <div key={index} className="w-full md:w-1/3 px-4 mb-8">
                 <Card className="rounded-lg shadow-lg p-8">
-                  <div 
+                  <div
                     className="w-16 h-16 mx-auto mb-4 bg-contain bg-no-repeat bg-center"
                     style={{ backgroundImage: `url(${feature.icon})` }}
                   />
@@ -41,4 +33,4 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
   );
 };
 
-export default Features; 
+export default Features;

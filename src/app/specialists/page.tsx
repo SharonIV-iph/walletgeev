@@ -11,10 +11,10 @@ import React, { useEffect, useState } from 'react';
 import { useApi } from '@/hooks/useApi';
 import SearchModal from '@/components/SearchModal';
 
-import { Consultant } from '@/types';
+import { Specialist } from '@/types/specialist';
 
 // Skeleton Components
-const ConsultantCardSkeleton = () => (
+const SpecialistCardSkeleton = () => (
     <Card className="overflow-hidden">
         <div className="relative h-48">
             <Skeleton className="w-full h-full" />
@@ -52,16 +52,16 @@ const HeaderSkeleton = () => (
     </div>
 );
 
-export default function Consultants() {
+export default function Specialists() {
     //TODO: handle best pagination
 
     const router = useRouter();
     const api = useApi();
-    const [consultants, setConsultants] = useState<Consultant[]>([]);
+    const [specialists, setSpecialists] = useState<Specialist[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
-    const [totalConsultants, setTotalConsultants] = useState(0);
-    const consultantsPerPage = 5;
+    const [totalSpecialists, setTotalSpecialists] = useState(0);
+    const specialistsPerPage = 5;
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -73,16 +73,16 @@ export default function Consultants() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await api.get<Consultant[]>(`/consultants?_page=${currentPage}&_limit=${consultantsPerPage}`);
+                const response = await api.get<Specialist[]>(`/specialists?_page=${currentPage}&_limit=${specialistsPerPage}`);
                 console.log('API Response:', response); // Debug log
 
                 if (response?.data) {
-                    setConsultants(response.data || []);
-                    setTotalConsultants(20); // Since we don't have total from API, using a default value
+                    setSpecialists(response.data || []);
+                    setTotalSpecialists(20); // Since we don't have total from API, using a default value
                 }
             } catch (error) {
                 console.error('Error fetching data:', error);
-                setConsultants([]);
+                setSpecialists([]);
             } finally {
                 setLoading(false);
             }
@@ -91,7 +91,7 @@ export default function Consultants() {
         fetchData();
     }, [currentPage]);
 
-    const totalPages = Math.ceil(totalConsultants / consultantsPerPage);
+    const totalPages = Math.ceil(totalSpecialists / specialistsPerPage);
 
     const paginate = (pageNumber: number) => {
         setCurrentPage(pageNumber);
@@ -104,7 +104,7 @@ export default function Consultants() {
                 <div className="container mx-auto px-4 py-12">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                         {[...Array(4)].map((_, index) => (
-                            <ConsultantCardSkeleton key={index} />
+                            <SpecialistCardSkeleton key={index} />
                         ))}
                     </div>
                 </div>
@@ -118,8 +118,8 @@ export default function Consultants() {
             <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-12">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-8">
-                        <h1 className="text-4xl font-bold mb-4">مشاورین ما</h1>
-                        <p className="text-xl text-white/80">با بهترین مشاور ها در خدمت دارایی شما هستیم</p>
+                        <h1 className="text-4xl font-bold mb-4">متخصصین ما</h1>
+                        <p className="text-xl text-white/80">با بهترین متخصص ها در خدمت دارایی شما هستیم</p>
                     </div>
 
                     <div className="max-w-2xl mx-auto">
@@ -128,7 +128,7 @@ export default function Consultants() {
                             className="relative cursor-pointer bg-background/10 backdrop-blur-sm rounded-full p-2 transition-colors hover:bg-background/20"
                         >
                             <div className="flex items-center justify-between py-3 px-4">
-                                <span className="text-white/90">جستجو در بین مشاورین و خدمات...</span>
+                                <span className="text-white/90">جستجو در بین متخصصین و خدمات...</span>
                                 <Button
                                     variant="ghost"
                                     size="icon"
@@ -142,23 +142,23 @@ export default function Consultants() {
                 </div>
             </div>
 
-            {/* Consultants Grid */}
+            {/* Specialists Grid */}
             <div className="container mx-auto px-4 py-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {consultants?.length > 0 ? (
-                        consultants.map((consultant) => (
-                            <Card key={consultant.id} className="overflow-hidden">
+                    {specialists?.length > 0 ? (
+                        specialists.map((specialist) => (
+                            <Card key={specialist.id} className="overflow-hidden">
                                 <div className="relative h-48">
                                     <img
-                                        src={consultant.imageUrl}
-                                        alt={consultant.name}
+                                        src={specialist.imageUrl}
+                                        alt={specialist.name}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
 
                                 <CardHeader>
-                                    <CardTitle className="text-xl font-bold text-foreground">{consultant.name}</CardTitle>
-                                    <CardDescription className="text-muted-foreground">{consultant.expertise}</CardDescription>
+                                    <CardTitle className="text-xl font-bold text-foreground">{specialist.name}</CardTitle>
+                                    <CardDescription className="text-muted-foreground">{specialist.expertise}</CardDescription>
                                 </CardHeader>
 
                                 <CardContent>
@@ -166,19 +166,19 @@ export default function Consultants() {
                                         {[...Array(5)].map((_, i) => (
                                             <Star
                                                 key={i}
-                                                className={`h-5 w-5 ${i < Math.floor(consultant.rating)
+                                                className={`h-5 w-5 ${i < Math.floor(specialist.rating)
                                                     ? 'text-yellow-400 fill-current'
                                                     : 'text-muted-foreground'
                                                     }`}
                                             />
                                         ))}
-                                        <span className="mr-2 text-muted-foreground">{consultant.rating}</span>
+                                        <span className="mr-2 text-muted-foreground">{specialist.rating}</span>
                                     </div>
-                                    <p className="text-muted-foreground text-sm">{consultant.description}</p>
+                                    <p className="text-muted-foreground text-sm">{specialist.description}</p>
                                 </CardContent>
 
                                 <CardFooter>
-                                    <Button className="w-full" onClick={() => router.push(`/consultants/${consultant.id}`)}>
+                                    <Button className="w-full" onClick={() => router.push(`/specialists/${specialist.id}`)}>
                                         مشاهده پروفایل
                                     </Button>
                                 </CardFooter>
@@ -186,7 +186,7 @@ export default function Consultants() {
                         ))
                     ) : (
                         <div className="col-span-full text-center py-8">
-                            <p className="text-muted-foreground">هیچ مشاوری یافت نشد</p>
+                            <p className="text-muted-foreground">هیچ متخصصی یافت نشد</p>
                         </div>
                     )}
                 </div>

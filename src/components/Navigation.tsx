@@ -86,6 +86,10 @@ const Navigation: React.FC = () => {
     }, []);
 
     useEffect(() => {
+        setIsOpen(false);
+    }, [pathname]);
+
+    useEffect(() => {
         const fetchNotifications = async () => {
             if (isAuthenticated) {
                 const response = await get<Notification[]>('/notifications');
@@ -112,7 +116,7 @@ const Navigation: React.FC = () => {
                                 ولت یار
                             </span>
                         </Link>
-                        <nav className="hidden md:flex items-center gap-6">
+                        <nav className="hidden md:flex items-center gap-4">
                             <Link
                                 href="/"
                                 className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/') ? 'text-primary' : 'text-muted-foreground'
@@ -132,6 +136,13 @@ const Navigation: React.FC = () => {
                             <Link
                                 href="/consultants"
                                 className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/consultants') ? 'text-primary' : 'text-muted-foreground'
+                                    }`}
+                            >
+                              مشاورین
+                            </Link>
+                            <Link
+                                href="/specialists"
+                                className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/specialists') ? 'text-primary' : 'text-muted-foreground'
                                     }`}
                             >
                                 متخصصین
@@ -157,6 +168,14 @@ const Navigation: React.FC = () => {
                                     }`}
                             >
                                 تماس با ما
+                            </Link>
+
+                            <Link
+                                href="/tradeyar"
+                                className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/tradeyar') ? 'text-primary' : 'text-muted-foreground'
+                                    } py-1 px-2 bg-red-400 rounded text-white`}
+                            >
+                                ترید یار
                             </Link>
                         </nav>
                     </div>
@@ -271,6 +290,16 @@ const Navigation: React.FC = () => {
                                             <span>متخصصین</span>
                                         </Link>
                                         <Link
+                                            href="/specialists"
+                                            className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/specialists')
+                                                ? 'bg-primary/10 text-primary'
+                                                : 'hover:bg-accent'
+                                                }`}
+                                        >
+                                            <User className="h-5 w-5" />
+                                            <span>مشاورین</span>
+                                        </Link>
+                                        <Link
                                             href="/blog"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/blog')
                                                 ? 'bg-primary/10 text-primary'
@@ -302,6 +331,15 @@ const Navigation: React.FC = () => {
                                         >
                                             <Phone className="h-5 w-5" />
                                             <span>تماس با ما</span>
+                                        </Link>
+                                        <Link
+                                            href="/tradeyar"
+                                            className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/tradeyar')
+                                                ? 'bg-primary/10 text-primary'
+                                                : 'hover:bg-accent'
+                                                } `}
+                                        >
+                                            <span className="bg-red-400 text-white py-1 px-2 rounded">ترید یار</span>
                                         </Link>
                                     </nav>
                                 </div>

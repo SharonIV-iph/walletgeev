@@ -4,28 +4,28 @@ export interface ContactFormData {
   message: string;
 }
 
-export interface SignupFormData {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
+// export interface SignupFormData {
+//   name: string;
+//   email: string;
+//   password: string;
+//   confirmPassword: string;
+// }
 
-export interface UserResponse {
-  id: string;
-  name: string;
-  email: string;
-  token: string;
-}
+// export interface UserResponse {
+//   id: string;
+//   name: string;
+//   email: string;
+//   token: string;
+// }
 
-export interface LoginResponse {
-  token: string;
-  user: {
-    id: string;
-    name: string;
-    email: string;
-  };
-}
+// export interface LoginResponse {
+//   token: string;
+//   user: {
+//     id: string;
+//     name: string;
+//     email: string;
+//   };
+// }
 
 export interface PricingPlan {
   id: string;
@@ -36,12 +36,12 @@ export interface PricingPlan {
   popular?: boolean;
 }
 
-export interface BlogPost {
-  id: string;
-  title: string;
-  content: string;
-  author: string;
-  date: string;
-  image: string;
-  tags: string[];
-} 
+// export interface BlogPost {
+//   id: string;
+//   title: string;
+//   content: string;
+//   author: string;
+//   date: string;
+//   image: string;
+//   tags: string[];
+// }

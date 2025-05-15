@@ -1,5 +1,5 @@
 import { Consultant } from './consultant';
-
+import { Specialist } from './specialist';
 export interface GalleryItem {
     id: string;
     imageUrl: string;
@@ -14,9 +14,10 @@ export interface Testimonial {
     id: string;
     name: string;
     role: string;
-    image: string;
+    imageUrl: string;
     content: string;
     rating: number;
+    quote: string;
 }
 
 export interface TestimonialsProps {
@@ -66,9 +67,9 @@ export interface FeaturesProps {
     features: Feature[];
 }
 
-export interface FeaturedConsultantsProps {
-    consultants: Consultant[];
-}
+    export interface FeaturedConsultantsProps {
+        consultants: Consultant[];
+    }
 
 export interface SearchModalProps {
     isOpen: boolean;
@@ -126,6 +127,10 @@ export interface HeroProps {
 
 export interface FeaturedConsultantsProps {
     consultants: Consultant[];
+}
+
+export interface FeaturedSpecialistsProps {
+    specialists: Specialist[];
 }
 
 export interface Notification {
