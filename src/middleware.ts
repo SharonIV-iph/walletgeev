@@ -1,7 +1,74 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+import { jwtDecode } from 'jwt-decode';
+
 const tokenCache = new Map<string, { isValid: boolean; expiry: number }>();
+const CACHE_DURATION = 5 * 60 * 1000; // 5 minutes
+
+interface TokenVerificationResult {
+    isValid: boolean;
+    error?: string;
+}
+
+interface JWTPayload {
+    exp: number;
+}
+
+function getTokenExpiry(token: string): number {
+    try {
+        const decoded = jwtDecode<JWTPayload>(token);
+        const expTime = decoded.exp * 1000; // Convert to milliseconds
+        const now = Date.now();
+        const timeUntilExp = expTime - now;
+
+        // If token expires in less than 5 minutes, use that time
+        if (timeUntilExp > 0 && timeUntilExp < CACHE_DURATION) {
+            return timeUntilExp;
+        }
+        return CACHE_DURATION;
+    } catch {
+        return CACHE_DURATION;
+    }
+}
+
+async function verifyToken(token: string): Promise<TokenVerificationResult> {
+    try {
+        const verifyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            cache: 'no-store',
+            credentials: 'include'
+        });
+        if (!verifyResponse.ok) {
+            return { isValid: false, error: 'Token verification failed' };
+        }
+
+        const data = await verifyResponse.json();
+        const isValid = data?.status || false;
+        if (!isValid) {
+            return { isValid: false, error: 'Invalid token' };
+        }
+        return { isValid: true };
+    } catch (error) {
+        return { isValid: false, error: 'Token verification error' };
+    }
+}
+
+function updateTokenCache(token: string, isValid: boolean) {
+    const now = Date.now();
+    const expiryDuration = getTokenExpiry(token);
+    tokenCache.set(token, {
+        isValid,
+        expiry: now + expiryDuration
+    });
+}
+
+function clearToken(response: NextResponse) {
+    response.cookies.delete('token');
+    return response;
+}
 
 export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
@@ -9,8 +76,7 @@ export async function middleware(request: NextRequest) {
     const isAuthPath = path === '/login' || path === '/signup';
     const token = request.cookies.get('token')?.value || '';
 
-    // Skip middleware for RSC requests if not a private path
-    if (request.nextUrl.searchParams.has('_rsc') && !isPrivatePath) {
+    if (!isAuthPath && !isPrivatePath) {
         return NextResponse.next();
     }
 
@@ -20,84 +86,46 @@ export async function middleware(request: NextRequest) {
             return NextResponse.redirect(new URL('/login', request.url));
         }
 
-        // Check token cache first
         const cached = tokenCache.get(token);
         const now = Date.now();
 
-        if (cached && cached.isValid && cached.expiry > now) {
-            const response = NextResponse.next();
-            response.cookies.set('token', token, {
-                expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
-                path: '/',
-                sameSite: 'strict'
-            });
-            return response;
-        }
+        if (!cached || cached.expiry <= now) {
+            const verificationResult = await verifyToken(token);
 
-        try {
-            const verifyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                },
-                cache: 'no-store',
-                credentials: 'include'
-            });
-
-            if (!verifyResponse.ok) {
-                throw new Error('Token verification failed');
+            if (!verificationResult.isValid) {
+                tokenCache.delete(token);
+                return clearToken(NextResponse.redirect(new URL('/login', request.url)));
             }
 
-            const data = await verifyResponse.json();
-
-            if (!data['status']) {
-                throw new Error('Invalid token');
-            }
-
-            // Cache the valid token
-            tokenCache.set(token, {
-                isValid: true,
-                expiry: now + 5 * 60 * 1000 // 5 minutes cache
-            });
-
-            // Set the token cookie again to ensure it's properly set
-            const nextResponse = NextResponse.next();
-            nextResponse.cookies.set('token', token, {
-                expires: new Date(Date.now() + 24 * 60 * 60 * 1000), // 1 day
-                path: '/',
-                sameSite: 'strict'
-            });
-            return nextResponse;
-        } catch (error) {
-            // Clear invalid token from cache and cookies
-            tokenCache.delete(token);
-            const response = NextResponse.redirect(new URL('/login', request.url));
-            response.cookies.delete('token');
-            return response;
+            updateTokenCache(token, true);
         }
+        console.log('Token verified');
+        return NextResponse.next();
     }
 
     // Handle auth paths (login/signup)
-    if (isAuthPath && token) {
-        try {
-            const verifyResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/verify`, {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                },
-                cache: 'no-store',
-                credentials: 'include'
-            });
+    if (isAuthPath) {
+        if (!token) {
+            return NextResponse.next();
+        }
 
-            if (verifyResponse.ok) {
-                const data = await verifyResponse.json();
-                if (data['status']) {
-                    return NextResponse.redirect(new URL('/dashboard', request.url));
-                }
+        const cached = tokenCache.get(token);
+        const now = Date.now();
+
+        if (!cached || cached.expiry <= now) {
+            const verificationResult = await verifyToken(token);
+
+            if (!verificationResult.isValid) {
+                tokenCache.delete(token);
+                return clearToken(NextResponse.next());
             }
-        } catch (error) {
-            // If verification fails, clear the token and continue to login
-            const response = NextResponse.next();
-            response.cookies.delete('token');
-            return response;
+
+            updateTokenCache(token, true);
+            return NextResponse.redirect(new URL('/dashboard', request.url));
+        }
+
+        if (cached.expiry > now) {
+            return NextResponse.redirect(new URL('/dashboard', request.url));
         }
     }
 

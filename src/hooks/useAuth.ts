@@ -27,43 +27,6 @@ export function useAuth() {
     const router = useRouter();
     const { get } = useApi();
 
-    const verifyToken = useCallback(async (token: string): Promise<boolean> => {
-        // Check cache first
-        if (verificationCache.token === token &&
-            verificationCache.isValid &&
-            verificationCache.expiry > Date.now()) {
-            return true;
-        }
-
-        // If already verifying, wait for the result
-        if (verificationCache.isVerifying) {
-            return false;
-        }
-
-        try {
-            verificationCache.isVerifying = true;
-            const response = await get<VerifyResponse>('/verify', {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                },
-                cache: 'no-store'
-            });
-
-            const isValid = response?.data?.status || false;
-
-            // Update cache
-            verificationCache.token = token;
-            verificationCache.isValid = isValid;
-            verificationCache.expiry = Date.now() + (5 * 60 * 1000); // 5 minutes cache
-            verificationCache.isVerifying = false;
-
-            return isValid;
-        } catch (error) {
-            verificationCache.isVerifying = false;
-            return false;
-        }
-    }, [get]);
-
     useEffect(() => {
         const checkToken = async () => {
             const token = Cookies.get('token');
@@ -75,35 +38,22 @@ export function useAuth() {
                 }
                 return;
             }
-
-            const isValid = await verifyToken(token);
-            if (!isValid) {
-                // Clear invalid token
-                Cookies.remove('token', { path: '/' });
-                setToken(undefined);
-                setIsAuthenticated(false);
-                if (pathname.startsWith('/dashboard')) {
-                    router.push('/login');
-                }
-                return;
-            }
-
-            // Re-set the token to ensure it persists
-            Cookies.set('token', token, {
-                expires: 1, // 1 day
-                path: '/',
-                sameSite: 'strict'
-            });
-
             setToken(token);
             setIsAuthenticated(true);
         };
 
         checkToken();
-    }, [pathname, router, verifyToken]);
+    }, [pathname, router]);
 
     const login = useCallback(async (token: string) => {
-        const isValid = await verifyToken(token);
+        const response = await get<VerifyResponse>('/verify', {
+            headers: {
+                Authorization: `Bearer ${token}`
+            },
+            cache: 'no-store'
+        });
+
+        const isValid = response?.data?.status || false;
         if (!isValid) {
             return false;
         }
@@ -117,7 +67,7 @@ export function useAuth() {
         setToken(token);
         setIsAuthenticated(true);
         return true;
-    }, [verifyToken]);
+    }, []);
 
     const logout = useCallback(() => {
         Cookies.remove('token', { path: '/' });
