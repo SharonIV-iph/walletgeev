@@ -81,7 +81,7 @@ export function LoginForm({
                             </div>
                         </div>
                     </form>
-                    <div className='bg-primary/50 relative hidden md:block'>
+                    <div className='bg-walletyar-secondary/50 relative hidden md:block'>
                         {imageUrl && (
                             <Image
                                 fill

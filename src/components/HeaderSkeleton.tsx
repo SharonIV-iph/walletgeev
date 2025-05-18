@@ -5,7 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export default function HeaderSkeleton() {
     return (
-        <header className="bg-gradient-to-r from-purple-600 to-purple-800 text-white">
+        <header className="bg-gradient-to-r from-walletyar-primary to-purple-800 text-white">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row items-center justify-between py-20">
                     {/* Text Content Skeleton */}

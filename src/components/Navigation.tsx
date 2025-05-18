@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import type { JSX } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { Button } from '@/registry/new-york-v4/ui/button';
@@ -16,7 +17,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from "@/registry/new-york-v4/ui/dropdown-menu";
-import { Notification } from '@/types/components';
+import { Notification, Service } from '@/types/components';
 
 const SkeletonNavigation = () => {
     return (
@@ -69,6 +70,9 @@ const Navigation: React.FC = () => {
     const [mounted, setMounted] = useState(false);
     const [notifications, setNotifications] = useState<Notification[]>([]);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [services, setServices] = useState<Service[]>([]);
+    const [isServicesOpen, setIsServicesOpen] = useState(false);
+    const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
     // Memoized callbacks
     const isActive = useCallback((path: string) => pathname === path, [pathname]);
@@ -88,6 +92,16 @@ const Navigation: React.FC = () => {
     useEffect(() => {
         setIsOpen(false);
     }, [pathname]);
+
+    useEffect(() => {
+        const fetchServices = async () => {
+            const response = await get<Service[]>('/services');
+            if (response?.data) {
+                setServices(response.data);
+            }
+        };
+        fetchServices();
+    }, [get]);
 
     useEffect(() => {
         const fetchNotifications = async () => {
@@ -125,20 +139,44 @@ const Navigation: React.FC = () => {
                                 خانه
                             </Link>
 
-
-                            <Link
-                                href="/services"
-                                className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/services') ? 'text-primary' : 'text-muted-foreground'
-                                    }`}
+                            <div
+                                className="relative"
+                                onMouseEnter={() => setIsServicesOpen(true)}
+                                onMouseLeave={() => setIsServicesOpen(false)}
                             >
-                                خدمات
-                            </Link>
+                                <DropdownMenu open={isServicesOpen} onOpenChange={setIsServicesOpen}>
+                                    <DropdownMenuTrigger className={`text-sm font-medium transition-colors hover:text-primary flex items-center gap-1 ${isActive('/services') ? 'text-primary' : 'text-muted-foreground'}`}>
+                                        <Link
+                                            href="/services"
+                                            className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/') ? 'text-primary' : 'text-muted-foreground'
+                                                }`}
+                                        >
+                                            خدمات
+                                        </Link>
+                                        <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent align="end" className="w-56" sideOffset={5}>
+                                        {services.map((service) => (
+                                            <DropdownMenuItem key={service.id} asChild>
+                                                <Link className="cursor-pointer w-full text-left flex justify-end py-4 border-b" href={`/services/${service.id}`}>
+                                                    {service.title}
+                                                </Link>
+                                            </DropdownMenuItem>
+                                        ))}
+                                        <DropdownMenuItem asChild>
+                                            <Link href="/services" className="cursor-pointer w-full text-left flex justify-end pt-4 pb-2">
+                                                مشاهده همه خدمات
+                                            </Link>
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
                             <Link
                                 href="/consultants"
                                 className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/consultants') ? 'text-primary' : 'text-muted-foreground'
                                     }`}
                             >
-                              مشاورین
+                                مشاورین
                             </Link>
                             <Link
                                 href="/specialists"
@@ -173,7 +211,7 @@ const Navigation: React.FC = () => {
                             <Link
                                 href="/tradeyar"
                                 className={`text-sm font-medium transition-colors hover:text-primary ${isActive('/tradeyar') ? 'text-primary' : 'text-muted-foreground'
-                                    } py-1 px-2 bg-red-400 rounded text-white`}
+                                    } py-1 px-2 bg-walletyar-purple rounded text-white`}
                             >
                                 ترید یار
                             </Link>
@@ -259,7 +297,7 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 }`}
                                             onClick={() => setIsOpen(false)}
@@ -267,21 +305,49 @@ const Navigation: React.FC = () => {
                                             <HomeIcon className="h-5 w-5" />
                                             <span>خانه</span>
                                         </Link>
-                                        <Link
-                                            href="/services"
-                                            className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/services')
-                                                ? 'bg-primary/10 text-primary'
-                                                : 'hover:bg-accent'
-                                                }`}
-                                            onClick={() => setIsOpen(false)}
+                                        <div
+                                            className="flex items-center gap-3 p-3 rounded-lg transition-colors cursor-pointer"
+                                            onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
                                         >
                                             <Briefcase className="h-5 w-5" />
                                             <span>خدمات</span>
-                                        </Link>
+                                            <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileServicesOpen ? 'rotate-180' : ''}`} />
+                                        </div>
+                                        {/* Services Dropdown in Mobile Menu */}
+                                        {isMobileServicesOpen && (
+                                            <div className="pl-4 border-r-2 border-muted">
+                                                {services.map((service) => (
+                                                    <Link
+                                                        key={service.id}
+                                                        href={`/services/${service.id}`}
+                                                        className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive(`/services/${service.id}`)
+                                                            ? 'bg-walletyar-secondary/10 text-primary'
+                                                            : 'hover:bg-accent'
+                                                            }`}
+                                                        onClick={() => {
+                                                            setIsOpen(false);
+                                                            setIsMobileServicesOpen(false);
+                                                        }}
+                                                    >
+                                                        <span className="text-sm">{service.title}</span>
+                                                    </Link>
+                                                ))}
+                                                <Link
+                                                    href="/services"
+                                                    className="flex items-center gap-3 p-3 rounded-lg transition-colors hover:bg-accent"
+                                                    onClick={() => {
+                                                        setIsOpen(false);
+                                                        setIsMobileServicesOpen(false);
+                                                    }}
+                                                >
+                                                    <span className="text-sm text-primary">مشاهده همه خدمات</span>
+                                                </Link>
+                                            </div>
+                                        )}
                                         <Link
                                             href="/consultants"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/consultants')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 }`}
                                             onClick={() => setIsOpen(false)}
@@ -292,7 +358,7 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/specialists"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/specialists')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 }`}
                                         >
@@ -302,7 +368,7 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/blog"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/blog')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 }`}
                                             onClick={() => setIsOpen(false)}
@@ -313,7 +379,7 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/about"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/about')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 }`}
                                             onClick={() => setIsOpen(false)}
@@ -324,7 +390,7 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/contact"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/contact')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 }`}
                                             onClick={() => setIsOpen(false)}
@@ -335,7 +401,7 @@ const Navigation: React.FC = () => {
                                         <Link
                                             href="/tradeyar"
                                             className={`flex items-center gap-3 p-3 rounded-lg transition-colors ${isActive('/tradeyar')
-                                                ? 'bg-primary/10 text-primary'
+                                                ? 'bg-walletyar-secondary/10 text-primary'
                                                 : 'hover:bg-accent'
                                                 } `}
                                         >

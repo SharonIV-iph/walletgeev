@@ -51,7 +51,7 @@ const FeaturedConsultants: React.FC<FeaturedConsultantsProps> = ({ consultants }
                         </CardContent>
 
                         <CardFooter>
-                            <Button className="w-full" onClick={() => router.push(`/consultants/${consultant.id}`)}>
+                            <Button className="w-full  bg-walletyar-purple text-white hover:bg-walletyar-purple/90" onClick={() => router.push(`/consultants/${consultant.id}`)}>
                                 مشاهده پروفایل
                             </Button>
                         </CardFooter>

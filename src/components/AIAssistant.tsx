@@ -17,10 +17,10 @@ export default function AIAssistant() {
             <Button
                 variant="default"
                 size="icon"
-                className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg w-16 h-16 bg-primary hover:bg-primary/90 transition-all duration-200"
+                className="fixed bottom-8 right-8 z-50 rounded-full shadow-lg w-16 h-16 bg-walletyar-purple hover:bg-walletyar-purple/90 transition-all duration-200"
                 onClick={() => setIsOpen(true)}
             >
-                <BotIcon className="h-10 w-10" />
+                <BotIcon className="h-10 w-10 text-white" />
             </Button>
 
             <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -29,7 +29,7 @@ export default function AIAssistant() {
                         <DialogTitle className="text-center text-2xl font-bold">مشاوره هوش مصنوعی</DialogTitle>
                     </DialogHeader>
                     <div className="flex flex-col items-center justify-center gap-6 py-8">
-                        <div className="bg-primary/10 p-6 rounded-full">
+                        <div className="bg-walletyar-secondary/10 p-6 rounded-full">
                             <BotIcon className="h-24 w-24 text-primary" />
                         </div>
                         <p className="text-center text-muted-foreground text-xl">

@@ -9,7 +9,7 @@ import { Skeleton } from '@/registry/new-york-v4/ui/skeleton';
 const ServiceSkeleton = () => {
     return (
         <div className="flex flex-col items-center text-center p-6 rounded-lg bg-card border shadow-sm">
-            <div className="mb-4 p-3 bg-primary/10 rounded-full">
+            <div className="mb-4 p-3 bg-walletyar-secondary/10 rounded-full">
                 <Skeleton className="w-12 h-12 rounded-full" />
             </div>
             <Skeleton className="h-6 w-32 mb-2" />
@@ -51,7 +51,7 @@ export default function Services({ services, isLoading = false }: ServicesProps 
                         href={`/services/${service.id}`}
                         className="flex flex-col items-center text-center p-6 rounded-lg bg-card hover:bg-accent transition-colors border shadow-sm hover:shadow-md"
                     >
-                        <div className="mb-4 p-3 bg-primary/10 rounded-full">
+                        <div className="mb-4 p-3 bg-walletyar-secondary/10 rounded-full">
                             <div className="relative w-12 h-12">
                                 <Image
                                     src={service.iconUrl}

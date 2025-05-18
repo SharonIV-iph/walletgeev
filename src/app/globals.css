@@ -253,3 +253,8 @@
         }
     }
 }
+
+
+*, html, body {
+    outline: none !important;
+}

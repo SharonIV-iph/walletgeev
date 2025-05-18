@@ -39,7 +39,7 @@ const ConsultantCardSkeleton = () => (
 );
 
 const HeaderSkeleton = () => (
-    <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-12">
+    <div className="bg-gradient-to-r from-walletyar-primary to-purple-800 text-white py-12">
         <div className="container mx-auto px-4">
             <div className="text-center mb-8">
                 <Skeleton className="h-10 w-48 mx-auto mb-4" />
@@ -115,7 +115,7 @@ export default function Consultants() {
     return (
         <main className="min-h-screen bg-background text-foreground rtl" dir="rtl">
             {/* Header Section */}
-            <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-12">
+            <div className="bg-gradient-to-r from-walletyar-primary to-purple-800 text-white py-12">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-8">
                         <h1 className="text-4xl font-bold mb-4">مشاورین ما</h1>
@@ -178,7 +178,7 @@ export default function Consultants() {
                                 </CardContent>
 
                                 <CardFooter>
-                                    <Button className="w-full" onClick={() => router.push(`/consultants/${consultant.id}`)}>
+                                    <Button className="w-full text-white" onClick={() => router.push(`/consultants/${consultant.id}`)}>
                                         مشاهده پروفایل
                                     </Button>
                                 </CardFooter>

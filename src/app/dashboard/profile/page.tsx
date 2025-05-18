@@ -131,7 +131,7 @@ export default function ProfilePage() {
 
                         <button
                             type="submit"
-                            className="px-4 py-2 rounded-lg bg-primary dark:text-black text-white hover:bg-primary/90 dark:bg-primary/80 dark:hover:bg-primary/70 transition-colors"
+                            className="px-4 py-2 rounded-lg bg-walletyar-secondary dark:text-black text-white hover:bg-walletyar-secondary/90 dark:bg-walletyar-secondary/80 dark:hover:bg-walletyar-secondary/70 transition-colors"
                         >
                             ذخیره تغییرات
                         </button>

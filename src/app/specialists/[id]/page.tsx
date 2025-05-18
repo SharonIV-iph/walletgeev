@@ -277,7 +277,7 @@ export default function SpecialistDetailPage() {
                 className="flex items-center gap-2"
                 onClick={() => router.push(`/specialists/${specialist.id}/profile`)}
               >
-                <UserIcon className="h-5 w-5" />
+                <UserIcon className="h-5 w-5 text-white" />
                 مشاهده پروفایل
               </Button>
               <Button

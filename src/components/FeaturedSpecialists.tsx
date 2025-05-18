@@ -51,7 +51,7 @@ const FeaturedSpecialists: React.FC<FeaturedSpecialistsProps> = ({ specialists }
                         </CardContent>
 
                         <CardFooter>
-                            <Button className="w-full" onClick={() => router.push(`/specialists/${specialist.id}`)}>
+                            <Button className="w-full text-white" onClick={() => router.push(`/specialists/${specialist.id}`)}>
                                 مشاهده پروفایل
                             </Button>
                         </CardFooter>
